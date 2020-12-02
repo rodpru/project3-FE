@@ -4,6 +4,9 @@ class AuthService {
   constructor() {
     let service = axios.create({
       baseURL: `${process.env.REACT_APP_PROJECTS_API}/api`,
+      //send authenticated encryped info to the back server
+      //this is setting Set.Cookie on the header request
+      withCredentials: true,
     });
     this.service = service;
   }
