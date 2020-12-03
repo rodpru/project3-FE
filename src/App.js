@@ -12,6 +12,7 @@ import AuthService from "./utils/auth";
 import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer } from "react-toastify";
 import Homepage from "./components/Homepage";
+import AllSchools from "./components/AllSchools";
 
 class App extends React.Component {
   state = {
@@ -68,6 +69,7 @@ class App extends React.Component {
               return <Login setCurrentUser={this.setCurrentUser} />;
             }}
           />
+          <Route path="/schools" component={AllSchools} />;
           <Route
             path="/login-google"
             render={() => {
