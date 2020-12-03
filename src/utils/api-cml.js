@@ -1,21 +1,19 @@
 import axios from "axios";
 
-class NurseriesDB {
+class KindergartensApi {
   constructor() {
     let service = axios.create({
-      baseURL: `${process.env.REACT_APP_PROJECTS_API}`,
+      baseURL: `${process.env.REACT_APP_CML_API}`,
     });
     this.service = service;
   }
 
-  getAllNurseries() {
-    //axios.get('http://localhost:5000/characters);
-    return this.service.get("/nurseries");
+  getAllKindergartens() {
+    return this.service.get("/query?where=1%3D1&outFields=*&outSR=4326&f=json");
   }
 
-  getNurseryId(id) {
-    //axios.get('http://localhost:5000/characters/1);
-    return this.service.get(`/nurseries/${id}`);
+  getKindergartensId() {
+    return this.service.get(`#`);
   }
 
   // addProject(project) {
@@ -31,4 +29,4 @@ class NurseriesDB {
   // }
 }
 
-export default NurseriesDB;
+export default KindergartensApi;

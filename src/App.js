@@ -13,6 +13,8 @@ import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer } from "react-toastify";
 import Homepage from "./components/Homepage";
 import AllSchools from "./components/AllSchools";
+import Kindergartens from "./components/Kindergartens";
+import Nurseries from "./components/Nurseries";
 
 class App extends React.Component {
   state = {
@@ -63,6 +65,8 @@ class App extends React.Component {
           <Route exact path="/projects/:id" component={ProjectDetail} />
           <Route path="/projects/:id/edit" component={EditProject} /> */}
           <Route path="/signup" component={Signup} />
+          <Route path="/kindergartens" component={Kindergartens} />
+          <Route path="/nurseries" component={Nurseries} />
           <Route
             path="/login"
             render={() => {
