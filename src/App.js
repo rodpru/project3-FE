@@ -1,9 +1,9 @@
 import "./App.css";
 import { Redirect, Route, Switch } from "react-router-dom";
-import ListProjects from "./components/ListProjects";
-import AddProject from "./components/AddProject";
-import ProjectDetail from "./components/ProjectDetail";
-import EditProject from "./components/EditProject";
+// import ListProjects from "./components/ListProjects";
+// import AddProject from "./components/antigo/AddProject";
+// import ProjectDetail from "./components/ProjectDetail";
+// import EditProject from "./components/EditProject";
 import Navbar from "./components/Navbar";
 import Signup from "./components/Signup";
 import React from "react";
@@ -11,6 +11,7 @@ import Login from "./components/Login";
 import AuthService from "./utils/auth";
 import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer } from "react-toastify";
+import Homepage from "./components/Homepage";
 
 class App extends React.Component {
   state = {
@@ -45,9 +46,9 @@ class App extends React.Component {
           setCurrentUser={this.setCurrentUser}
         />
         <Switch>
-          <Route exact path="/" component={ListProjects} />
-          <Route exact path="/projects" component={ListProjects} />
-          <Route
+          <Route exact path="/" component={Homepage} />
+          {/* <Route exact path="/schools" component={ListProjects} /> */}
+          {/* <Route
             exact
             path="/projects/add"
             render={() => {
@@ -59,7 +60,7 @@ class App extends React.Component {
             }}
           />
           <Route exact path="/projects/:id" component={ProjectDetail} />
-          <Route path="/projects/:id/edit" component={EditProject} />
+          <Route path="/projects/:id/edit" component={EditProject} /> */}
           <Route path="/signup" component={Signup} />
           <Route
             path="/login"

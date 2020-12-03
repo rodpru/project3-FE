@@ -26,12 +26,12 @@ class Navbar extends React.Component {
                   Home
                 </NavLink>
               </li>
-              <li>
+              {/* <li>
                 <NavLink activeStyle={{ color: "red" }} exact to="/projects">
                   List Projects
                 </NavLink>
-              </li>
-              <li>
+              </li> */}
+              {/* <li>
                 <NavLink
                   activeStyle={{ color: "red" }}
                   exact
@@ -39,7 +39,7 @@ class Navbar extends React.Component {
                 >
                   Add Project
                 </NavLink>
-              </li>
+              </li> */}
             </ul>
           </nav>
         </div>

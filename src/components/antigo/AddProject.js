@@ -1,5 +1,5 @@
 import React from "react";
-import ProjectsService from "../utils/api";
+import ProjectsService from "../../utils/api";
 import { withRouter } from "react-router-dom";
 import { toast } from "react-toastify";
 
