@@ -5,13 +5,45 @@ class Homepage extends React.Component {
   render() {
     return (
       <div>
-        <h2>Hello from home page</h2>
+        <div
+          id="carouselExampleSlidesOnly"
+          className="carousel slide"
+          data-ride="carousel"
+        >
+          <div className="carousel-inner">
+            <div className="carousel-item active">
+              <img
+                src="/images/yue-su-MKfxITjPhzY-unsplash.jpg"
+                className="d-block w-100"
+                alt="schoolpic"
+              />
+            </div>
+            <div className="carousel-item">
+              <img
+                src="/images/pro-church-media-2DTE3ePfnD8-unsplash.jpg"
+                className="d-block w-100"
+                alt="schoolpic"
+              />
+            </div>
+          </div>
+        </div>
         <Link to={"/nurseries"}>
-          <button>Nurseries</button>
+          <button className="btn btn-light">Nurseries</button>
         </Link>
         <Link to={"/kindergartens"}>
-          <button>Kindergartens</button>
+          <button className="btn btn-light">Kindergartens</button>
         </Link>
+        {/* <div className="img-text">
+          <h2>
+            Find the best kindergarten <br />
+            or nursery for your children!
+          </h2>
+          <p>
+            Lorem Ipsum has been the industry's standard dummy
+            <br /> text ever since the 1500s, when an unknown printer took a
+            <br /> galley of type and scrambled it to make a type specimen book.
+          </p>
+        </div> */}
       </div>
     );
   }
