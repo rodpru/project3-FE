@@ -15,10 +15,22 @@ class Nurseries extends React.Component {
   }
 
   render() {
-    console.log(this.state);
     return (
       <div>
-        <h2>Hello from Nurseries page</h2>
+        {this.state.nurseries.map((nursery, index) => {
+          return (
+            <div className="card" key={index} style={{ width: "200px" }}>
+              <img src="..." className="card-img-top" alt="..." />
+              <div className="card-body">
+                <h5 className="card-title">{nursery.name}</h5>
+                <p className="card-text">{nursery.description}</p>
+                {/* <a href="/" className="btn btn-primary">
+                  Go somewhere
+                </a> */}
+              </div>
+            </div>
+          );
+        })}
       </div>
     );
   }

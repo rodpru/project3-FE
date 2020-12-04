@@ -16,7 +16,6 @@ class Kindergartens extends React.Component {
     });
   }
 
-  
   //search method
   // filterKindergarten = (id) => {
   //   this.state.kindergartens.find((kindergarten) => {
@@ -28,7 +27,24 @@ class Kindergartens extends React.Component {
   render() {
     return (
       <div>
-        <h2>Hello from Kindergartens page</h2>
+        {this.state.kindergartens.map((kindergarten, index) => {
+          return (
+            <div className="card" key={index} style={{ width: "200px" }}>
+              <img src="..." className="card-img-top" alt="..." />
+              <div className="card-body">
+                <h5 className="card-title">
+                  {kindergarten.attributes.INF_NOME}
+                </h5>
+                <p className="card-text">
+                  {kindergarten.attributes.INF_DESCRICAO}
+                </p>
+                {/* <a href="/" className="btn btn-primary">
+                  Go somewhere
+                </a> */}
+              </div>
+            </div>
+          );
+        })}
       </div>
     );
   }

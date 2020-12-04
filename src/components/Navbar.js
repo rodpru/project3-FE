@@ -1,8 +1,9 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import AuthService from "../utils/auth";
 import "../App.css";
 import "./Navbar.css";
+import MyModal from "./Modal";
 
 class Navbar extends React.Component {
   logoutUser = () => {
@@ -19,7 +20,7 @@ class Navbar extends React.Component {
           className="navbar navbar-light "
           style={{ backgroundColor: "#e3f2fd" }}
         >
-          <div className="nav-bar-logo"></div>
+          <div className="nav-bar-logo"> </div>
           <div className="nav-bar-links">
             <NavLink activeStyle={{ color: "red" }} exact to="/">
               Home
@@ -30,6 +31,15 @@ class Navbar extends React.Component {
             <NavLink to="/" onClick={this.logoutUser}>
               Logout
             </NavLink>
+
+            {/* <button
+              type="button"
+              className="btn btn-primary"
+              data-toggle="modal"
+              data-target="#exampleModal"
+            >
+              Launch demo modal
+            </button> */}
           </div>
         </nav>
       );
@@ -47,9 +57,11 @@ class Navbar extends React.Component {
             <NavLink activeStyle={{ color: "red" }} exact to="/schools">
               Schools
             </NavLink>
-            <NavLink activeStyle={{ color: "red" }} exact to="/login">
+            <MyModal />
+
+            {/* <NavLink activeStyle={{ color: "red" }} exact to="/login">
               Login
-            </NavLink>
+            </NavLink> */}
             {/* <NavLink activeStyle={{ color: "red" }} exact to="/login-google">
               Login With Google
             </NavLink> */}
