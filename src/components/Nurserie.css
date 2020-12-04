@@ -1,16 +1,22 @@
 .card-deck {
   justify-content: center;
-  padding: 10vh 2vw 10vh 2vw
+  padding: 2vh 2vw 10vh 2vw
 }
 .card {
   margin: 2vh 2vw;
 }
+img.card-img-top{
+   padding-top: 2vh;
+
+}
 .search{
-  position: fixed;
-  top: 8rem;
-  right: 4rem;
+  top: 5rem;
+  left: 55rem;
   z-index: 11;
   cursor: pointer;
+  padding-top: 2vh;
+  padding-bottom: -3vh;
+  padding-left: 92%;
 }
 .search svg {
   width: 3rem;
@@ -27,5 +33,24 @@
   right: 0;
   border-radius: 20px;
   color: #212121;
-  padding: 0 ;
+  padding: 0 3rem 0 1.3rem;
+  box-shadow: 11px 15px 16px rgba(0, 0, 0, 0.07);
+  transform-origin: right;
+  transform: scaleX(0);
+  transition: transform 0.15s linear;
+}
+.search.open svg {
+  transform: scale(0.6) translateX(-0.6rem);
+}
+.search.open input {
+  transform: scaleX(1);
+}
+.overlay {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  overflow: hidden;
+  z-index: 1;
 }
