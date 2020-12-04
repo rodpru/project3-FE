@@ -78,20 +78,33 @@ class MyModal extends React.Component {
           <Modal.Body>
             <div className="container-login">
               <div className="google-oauth">
-                <button>
-                  <img
-                    src="../../images/google.png"
-                    alt="google-logo"
-                    className="google-icon"
-                  />
-                  <NavLink
-                    activeStyle={{ color: "red" }}
-                    exact
-                    to="/login-google"
+                <NavLink
+                  activeStyle={{ color: "red" }}
+                  exact
+                  to="/login-google"
+                >
+                  <button
+                    style={{
+                      borderRadius: "15px",
+                      height: "9vh",
+                      width: "20vw",
+                      justifyContent: "space-evenly",
+                      display: "flex",
+                      alignItems: "center",
+                    }}
                   >
-                    Login With Google
-                  </NavLink>
-                </button>
+                    {" "}
+                    <img
+                      src="../../images/google.png"
+                      style={{
+                        width: "4vw",
+                      }}
+                      alt="google-logo"
+                      className="google-icon"
+                    />
+                    Google Log In
+                  </button>
+                </NavLink>
               </div>
               <div className="login-signup">
                 <form onSubmit={this.handleFormSubmit}>

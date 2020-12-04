@@ -22,3 +22,9 @@ form button {
   margin-top: 1vh;
   margin-bottom: 1vh;
 }
+.nav-bar-logo {
+  font-family: 'Nerko One', cursive;
+  font-size: 2rem;
+  color: #9BBBDF;
+  margin-top: -2vh;  
+} 
