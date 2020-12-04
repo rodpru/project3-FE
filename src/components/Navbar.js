@@ -49,7 +49,7 @@ class Navbar extends React.Component {
           className="navbar navbar-light "
           style={{ backgroundColor: "#e3f2fd" }}
         >
-          <div className="nav-bar-logo"></div>
+          <div className="nav-bar-logo">My First School</div>
           <div className="nav-bar-links">
             <NavLink activeStyle={{ color: "red" }} exact to="/">
               Home
