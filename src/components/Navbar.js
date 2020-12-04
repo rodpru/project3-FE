@@ -2,6 +2,7 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import AuthService from "../utils/auth";
 import "../App.css";
+import "./Navbar.css";
 
 class Navbar extends React.Component {
   logoutUser = () => {
@@ -14,37 +15,23 @@ class Navbar extends React.Component {
   render() {
     if (this.props.loggedInUser) {
       return (
-        <div className="navbar navbar-light bg-light">
-          <p className="teste">Welcome {this.props.loggedInUser.username}</p>
-          <nav className="navbar navbar-light bg-light">
-            <ul>
-              <li>
-                <NavLink to="/">
-                  <button onClick={this.logoutUser}>Logout</button>
-                </NavLink>
-              </li>
-              <li>
-                <NavLink activeStyle={{ color: "red" }} exact to="/">
-                  Home
-                </NavLink>
-              </li>
-              {/* <li>
-                <NavLink activeStyle={{ color: "red" }} exact to="/projects">
-                  List Projects
-                </NavLink>
-              </li> */}
-              {/* <li>
-                <NavLink
-                  activeStyle={{ color: "red" }}
-                  exact
-                  to="/projects/add"
-                >
-                  Add Project
-                </NavLink>
-              </li> */}
-            </ul>
-          </nav>
-        </div>
+        <nav
+          className="navbar navbar-light "
+          style={{ backgroundColor: "#e3f2fd" }}
+        >
+          <div className="nav-bar-logo"></div>
+          <div className="nav-bar-links">
+            <NavLink activeStyle={{ color: "red" }} exact to="/">
+              Home
+            </NavLink>
+            <NavLink activeStyle={{ color: "red" }} exact to="/schools">
+              Schools
+            </NavLink>
+            <NavLink to="/" onClick={this.logoutUser}>
+              Logout
+            </NavLink>
+          </div>
+        </nav>
       );
     } else {
       return (
@@ -52,21 +39,21 @@ class Navbar extends React.Component {
           className="navbar navbar-light "
           style={{ backgroundColor: "#e3f2fd" }}
         >
-          <NavLink activeStyle={{ color: "red" }} exact to="/">
-            Home
-          </NavLink>
-          <NavLink activeStyle={{ color: "red" }} exact to="/schools">
-            Schools
-          </NavLink>
-          <NavLink activeStyle={{ color: "red" }} exact to="/login">
-            Login
-          </NavLink>
-          <NavLink activeStyle={{ color: "red" }} exact to="/login-google">
-            Login With Google
-          </NavLink>
-          <NavLink activeStyle={{ color: "red" }} exact to="/signup">
-            Signup
-          </NavLink>
+          <div className="nav-bar-logo"></div>
+          <div className="nav-bar-links">
+            <NavLink activeStyle={{ color: "red" }} exact to="/">
+              Home
+            </NavLink>
+            <NavLink activeStyle={{ color: "red" }} exact to="/schools">
+              Schools
+            </NavLink>
+            <NavLink activeStyle={{ color: "red" }} exact to="/login">
+              Login
+            </NavLink>
+            {/* <NavLink activeStyle={{ color: "red" }} exact to="/login-google">
+              Login With Google
+            </NavLink> */}
+          </div>
         </nav>
       );
     }
