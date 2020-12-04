@@ -1,17 +1,23 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import KindergartensApi from "../utils/api-cml";
+import NurseriesDB from "../utils/api";
 
 class Homepage extends React.Component {
   state = {
     kindergartens: [],
+    nurseries: [],
   };
 
   componentDidMount() {
     const kindergartens = new KindergartensApi();
-    kindergartens.getAllKindergartens().then((response) => {
-      return this.setState({
-        kindergartens: response.data.features,
+    const nurseries = new NurseriesDB();
+    kindergartens.getAllKindergartens().then((responseKinder) => {
+      return nurseries.getAllNurseries().then((responseNurseries) => {
+        this.setState({
+          kindergartens: responseKinder.data.features,
+          nurseries: responseNurseries.data,
+        });
       });
     });
   }
@@ -19,14 +25,21 @@ class Homepage extends React.Component {
   getRandom() {
     // filter the kindergarten array
     let copy = [...this.state.kindergartens]; // all the array
+    let copy2 = [...this.state.nurseries];
     let result = [];
+    let result2 = [];
     for (let i = 0; i < 4; i++) {
       let randomNumber = [Math.floor(Math.random() * copy.length)];
+      let randomNumber2 = [Math.floor(Math.random() * copy2.length)];
+
       result.push(copy[randomNumber]);
+      result2.push(copy2[randomNumber2]);
       copy.splice(randomNumber, 1);
+      copy2.splice(randomNumber2, 1);
     }
     this.setState({
       kindergartens: result,
+      nurseries: result2,
     });
   }
 
@@ -45,7 +58,7 @@ class Homepage extends React.Component {
       <div>
         <div id="home-container">
           <div
-            id="carouselExampleSlidesOnly"
+            id="carouselExampleControls"
             className="carousel slide"
             data-ride="carousel"
           >
@@ -54,18 +67,48 @@ class Homepage extends React.Component {
                 <img
                   src="/images/kelly-sikkema-JRVxgAkzIsM-unsplash.jpg"
                   className="d-block w-100"
-                  alt="schoolpic"
+                  alt="childrenpics"
                 />
               </div>
               <div className="carousel-item">
                 <img
-                  id="img2"
                   src="/images/pro-church-media-2DTE3ePfnD8-unsplash.jpg"
                   className="d-block w-100"
-                  alt="schoolpic"
+                  alt="childrenpics"
+                />
+              </div>
+              <div className="carousel-item">
+                <img
+                  src="/images/alexander-dummer-UH-xs-FizTk-unsplash.jpg"
+                  className="d-block w-100"
+                  alt="childrenpics"
                 />
               </div>
             </div>
+            <a
+              class="carousel-control-prev"
+              href="#carouselExampleControls"
+              role="button"
+              data-slide="prev"
+            >
+              <span
+                class="carousel-control-prev-icon"
+                aria-hidden="true"
+              ></span>
+              <span class="sr-only">Previous</span>
+            </a>
+            <a
+              class="carousel-control-next"
+              href="#carouselExampleControls"
+              role="button"
+              data-slide="next"
+            >
+              <span
+                class="carousel-control-next-icon"
+                aria-hidden="true"
+              ></span>
+              <span class="sr-only">Next</span>
+            </a>
           </div>
           <div id="img-text" className="container">
             <h1>
@@ -85,37 +128,64 @@ class Homepage extends React.Component {
               <button className="btn btn-light">Kindergartens</button>
             </Link>
           </div>
-          <div id="nursery-text">
-            <h2>Best Nurseries</h2>
-            <p>Find the best nurseries in Lisbon</p>
-          </div>
-          <div id="kinder-text">
-            <h2>Best Kindergartens</h2>
-            <p>Find the best kindergartens in Lisbon</p>
-            <div className="card-deck d-flex flex-wrap">
-              {this.state.kindergartens.map((kindergarten, index) => {
-                return (
-                  <div
-                    className="card col-sm-3"
-                    key={index}
-                    style={{ width: "200px" }}
-                  >
-                    <img
-                      src="/images/thiago-cerqueira-Wr3HGvx_RSM-unsplash.jpg"
-                      className="card-img-top"
-                      alt="..."
-                    />
-                    <div className="card-body">
-                      <h5 className="card-title">
-                        {kindergarten.attributes.INF_NOME}
-                      </h5>
-                      <p className="card-text">
-                        {kindergarten.attributes.INF_DESCRICAO}
-                      </p>
+          <div id="nurse-kind-cards" className="container">
+            <div id="nursery-text">
+              <h2 className="title">
+                Featured <b>Nurseries</b>
+              </h2>
+              <p className="title">Find the best nurseries in Lisbon</p>
+              <div className="card-deck d-flex flex-wrap">
+                {this.state.nurseries.map((nursery, index) => {
+                  return (
+                    <div
+                      className="card col-sm-3"
+                      key={index}
+                      style={{ width: "200px" }}
+                    >
+                      <img
+                        src="/images/annie-spratt-fBrGckWLQ0Q-unsplash.jpg"
+                        className="card-img-top"
+                        alt="nurseries"
+                      />
+                      <div className="card-body">
+                        <h5 className="card-title">{nursery.name}</h5>
+                        <p className="card-text">{nursery.description}</p>
+                      </div>
                     </div>
-                  </div>
-                );
-              })}
+                  );
+                })}
+              </div>
+            </div>
+            <div id="kinder-text">
+              <h2 className="title">
+                Featured <b>Kindergartens</b>
+              </h2>
+              <p className="title">Find the best kindergartens in Lisbon</p>
+              <div className="card-deck d-flex flex-wrap">
+                {this.state.kindergartens.map((kindergarten, index) => {
+                  return (
+                    <div
+                      className="card col-sm-3"
+                      key={index}
+                      style={{ width: "200px" }}
+                    >
+                      <img
+                        src="/images/thiago-cerqueira-Wr3HGvx_RSM-unsplash.jpg"
+                        className="card-img-top"
+                        alt="kindergartens"
+                      />
+                      <div className="card-body">
+                        <h5 className="card-title">
+                          {kindergarten.attributes.INF_NOME}
+                        </h5>
+                        <p className="card-text">
+                          {kindergarten.attributes.INF_DESCRICAO}
+                        </p>
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
             </div>
           </div>
         </div>

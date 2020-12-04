@@ -17,7 +17,7 @@ left: 3vw !important;
 padding: 0.5rem !important;
 margin: 2px !important;
 color: #008ea7!important;
-border: 1px solid black !important;
+border: 1px solid rgb(122, 116, 116) !important;
 border-radius: 10px !important;
 font-weight: bold !important;
 margin-top: 20px !important;
@@ -45,26 +45,36 @@ background-repeat: no-repeat !important;
   position: relative;
   bottom: 33rem;
   color: #FAFAFA;
-  right: 6vw;
+  right: 2vw;
   font-size: 1.5rem;
   text-shadow: 2px 2px 2px #000;
   line-height: 40px;
-  margin: 10 150px;
+  margin: 10px 150px;
 }
 
 
 @media screen and (max-width:  700px) {
   #img-text { 
-      margin: 0 50px 0px 40px!important;
+      margin: 0px 50px 0px 40px!important;
+      margin-top: 50px !important;
       bottom: 50rem;
-      padding: 0 60px 0 10px;
+      padding: 0px 60px 0px 10px;
   }
   html {
-    font-size: 10px !important;
+    font-size: 11px !important;
   }
 }
 
+#nurse-kind-cards {
+  position: relative;
+  bottom:19rem;
+  
+}
 
+.title {
+  position: relative;
+  
+}
 
 
 
