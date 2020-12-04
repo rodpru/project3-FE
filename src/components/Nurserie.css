@@ -1,0 +1,31 @@
+.card-deck {
+  justify-content: center;
+  padding: 10vh 2vw 10vh 2vw
+}
+.card {
+  margin: 2vh 2vw;
+}
+.search{
+  position: fixed;
+  top: 8rem;
+  right: 4rem;
+  z-index: 11;
+  cursor: pointer;
+}
+.search svg {
+  width: 3rem;
+  position: relative;
+  z-index: 1;
+  transform: scale(1) translateX(0);
+  transition: transform 0.15s linear;
+}
+.search input {
+  background-color: #e4e4e4;
+  width: 16rem;
+  height: 2.8rem;
+  position: absolute;
+  right: 0;
+  border-radius: 20px;
+  color: #212121;
+  padding: 0 ;
+}
