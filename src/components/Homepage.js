@@ -5,7 +5,7 @@ class Homepage extends React.Component {
   render() {
     return (
       <div>
-        <div className="container-fluid">
+        <div id="home-container">
           <div
             id="carouselExampleSlidesOnly"
             className="carousel slide"
@@ -29,7 +29,7 @@ class Homepage extends React.Component {
               </div>
             </div>
           </div>
-          <div id="img-text" className="container-xl img-text">
+          <div id="img-text" className="container">
             <h1>
               Find the best kindergarten <br />
               or nursery for your children!
@@ -47,8 +47,14 @@ class Homepage extends React.Component {
               <button className="btn btn-light">Kindergartens</button>
             </Link>
           </div>
-          <h2>Best Kindergartens</h2>
-          <p>Find the best kindergartens in Lisbon</p>
+          <div id="nursery-text">
+            <h2>Best Nurseries</h2>
+            <p>Find the best nurseries in Lisbon</p>
+          </div>
+          <div id="kinder-text">
+            <h2>Best Kindergartens</h2>
+            <p>Find the best kindergartens in Lisbon</p>
+          </div>
         </div>
       </div>
     );
