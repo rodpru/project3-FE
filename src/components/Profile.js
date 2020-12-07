@@ -46,10 +46,18 @@ class Profile extends React.Component {
   //   });
   // }
   render() {
-    console.log(this.props.loggedInUser);
     return (
       <div>
         <h2>Hello from profile</h2>
+        {this.state.favorites.map((school) => {
+          return (
+            <div>
+              <p>{school.name}</p>
+              <p>{school.address}</p>
+              <p>{school.description}</p>
+            </div>
+          );
+        })}
       </div>
     );
   }
