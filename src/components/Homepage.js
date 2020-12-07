@@ -150,6 +150,7 @@ class Homepage extends React.Component {
                       <div className="card-body">
                         <h5 className="card-title">{nursery.name}</h5>
                         <p className="card-text">{nursery.description}</p>
+                        <a href="#" class="btn btn-primary">Go somewhere</a>
                       </div>
                     </div>
                   );
@@ -181,6 +182,7 @@ class Homepage extends React.Component {
                         <p className="card-text">
                           {kindergarten.attributes.INF_DESCRICAO}
                         </p>
+                        <a href="#" class="btn btn-primary">Go somewhere</a>
                       </div>
                     </div>
                   );

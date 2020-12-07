@@ -1,9 +1,5 @@
 import "./App.css";
 import { Redirect, Route, Switch } from "react-router-dom";
-// import ListProjects from "./components/ListProjects";
-// import AddProject from "./components/antigo/AddProject";
-// import ProjectDetail from "./components/ProjectDetail";
-// import EditProject from "./components/EditProject";
 import Navbar from "./components/Navbar";
 import Signup from "./components/Signup";
 import React from "react";
@@ -15,6 +11,7 @@ import Homepage from "./components/Homepage";
 import AllSchools from "./components/AllSchools";
 import Kindergartens from "./components/Kindergartens";
 import Nurseries from "./components/Nurseries";
+import Profile from "./components/Profile";
 
 class App extends React.Component {
   state = {
@@ -80,6 +77,7 @@ class App extends React.Component {
               window.location.href = `${process.env.REACT_APP_PROJECTS_API}/api/auth/google`;
             }}
           />
+          <Route path="/profile" component={Profile} />
         </Switch>
       </div>
     );
