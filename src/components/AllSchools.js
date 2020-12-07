@@ -2,7 +2,6 @@ import React from "react";
 import NurseriesDB from "../utils/api";
 import KindergartensApi from "../utils/api-cml";
 import { Link } from "react-router-dom";
-import axios from "axios";
 
 class AllSchools extends React.Component {
   state = {
@@ -54,7 +53,12 @@ class AllSchools extends React.Component {
                       alt="nurseries"
                     />
                     <div className="card-body">
-                      <h5 className="card-title">{nursery.name}</h5>
+                      <Link
+                        to={{ pathname: `/${nursery._id}`, state: nursery }}
+                      >
+                        {" "}
+                        <h5 className="card-title">{nursery.name}</h5>{" "}
+                      </Link>
                       <p className="card-text">{nursery.description}</p>
 
                       <button
@@ -90,9 +94,17 @@ class AllSchools extends React.Component {
                       alt="kindergartens"
                     />
                     <div className="card-body">
-                      <h5 className="card-title">
-                        {kindergarten.attributes.INF_NOME}
-                      </h5>
+                      <Link
+                        to={{
+                          pathname: `/${kindergarten.attributes.GlobalID}`,
+                          state: kindergarten,
+                        }}
+                      >
+                        {" "}
+                        <h5 className="card-title">
+                          {kindergarten.attributes.INF_NOME}
+                        </h5>{" "}
+                      </Link>
                       <p className="card-text">
                         {kindergarten.attributes.INF_DESCRICAO}
                       </p>

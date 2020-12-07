@@ -12,6 +12,7 @@ import AllSchools from "./components/AllSchools";
 import Kindergartens from "./components/Kindergartens";
 import Nurseries from "./components/Nurseries";
 import Profile from "./components/Profile";
+import Details from "./components/Details";
 
 class App extends React.Component {
   state = {
@@ -88,6 +89,7 @@ class App extends React.Component {
               return <Profile loggedInUser={this.state.loggedInUser} />;
             }}
           />
+          <Route path="/:id" component={Details} />
         </Switch>
       </div>
     );

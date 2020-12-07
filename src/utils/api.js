@@ -15,7 +15,7 @@ class NurseriesDB {
 
   getNurseryId(id) {
     //axios.get('http://localhost:5000/characters/1);
-    return this.service.get(`/nurseries/${id}`);
+    return this.service.get(`/schools/${id}`);
   }
 
   addFavorite(user, id) {
