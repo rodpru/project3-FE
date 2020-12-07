@@ -28,6 +28,13 @@ class Navbar extends React.Component {
             <NavLink activeStyle={{ color: "red" }} exact to="/schools">
               Schools
             </NavLink>
+            <NavLink
+              activeStyle={{ color: "red" }}
+              exact
+              to={`/profile/${this.props.loggedInUser._id}`}
+            >
+              Favorites
+            </NavLink>
             <NavLink to="/" onClick={this.logoutUser}>
               Logout
             </NavLink>

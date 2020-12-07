@@ -18,6 +18,14 @@ class NurseriesDB {
     return this.service.get(`/nurseries/${id}`);
   }
 
+  addFavorite(user, id) {
+    return this.service.post("/profile", { user, id });
+  }
+
+  getFavorites(id) {
+    return this.service.get(`/profile/${id}`);
+  }
+
   // addProject(project) {
   //   //axios.post('http://localhost:5000/characters/, { name: 'miguel});
   //   return this.service.post("/projects", project);

@@ -2,6 +2,7 @@ import React from "react";
 import NurseriesDB from "../utils/api";
 import KindergartensApi from "../utils/api-cml";
 import { Link } from "react-router-dom";
+import axios from "axios";
 
 class AllSchools extends React.Component {
   state = {
@@ -21,20 +22,29 @@ class AllSchools extends React.Component {
     });
   }
 
+  addFavorite = (id) => {
+    const nurseries = new NurseriesDB();
+    console.log(id);
+    console.log(this.props.loggedInUser);
+    nurseries.addFavorite(this.props.loggedInUser._id, id).then((response) => {
+      console.log(response);
+    });
+  };
+
   render() {
     return (
       <div>
         <div id="nurse-kind-cards2" className="container">
           <div id="nursery-text">
             <h2 className="title">
-               <b>Nurseries</b>
+              <b>Nurseries</b>
             </h2>
             <p className="title">Find the best nurseries in Lisbon</p>
-            <div className="card-deck d-flex flex-wrap">
+            <div className="row row-cols-1 row-cols-lg-5">
               {this.state.nurseries.map((nursery, index) => {
                 return (
                   <div
-                    className="card col-sm-3"
+                    className="card col-lg-5"
                     key={index}
                     style={{ width: "200px" }}
                   >
@@ -46,9 +56,15 @@ class AllSchools extends React.Component {
                     <div className="card-body">
                       <h5 className="card-title">{nursery.name}</h5>
                       <p className="card-text">{nursery.description}</p>
-                      <a href="#" class="btn btn-primary">
+
+                      <button
+                        onClick={() => {
+                          this.addFavorite(nursery._id);
+                        }}
+                        className="btn btn-primary"
+                      >
                         Add to Favourites
-                      </a>
+                      </button>
                     </div>
                   </div>
                 );
@@ -57,14 +73,14 @@ class AllSchools extends React.Component {
           </div>
           <div id="kinder-text">
             <h2 className="title">
-               <b>Kindergartens</b>
+              <b>Kindergartens</b>
             </h2>
             <p className="title">Find the best kindergartens in Lisbon</p>
-            <div className="card-deck d-flex flex-wrap">
+            <div className="row row-cols-1 row-cols-lg-5">
               {this.state.kindergartens.map((kindergarten, index) => {
                 return (
                   <div
-                    className="card col-sm-3"
+                    className="card col-lg-5"
                     key={index}
                     style={{ width: "200px" }}
                   >
@@ -80,8 +96,8 @@ class AllSchools extends React.Component {
                       <p className="card-text">
                         {kindergarten.attributes.INF_DESCRICAO}
                       </p>
-                      <a href="#" class="btn btn-primary">
-                      Add to Favourites
+                      <a href="#" className="btn btn-primary">
+                        Add to Favourites
                       </a>
                     </div>
                   </div>

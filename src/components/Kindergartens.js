@@ -68,7 +68,10 @@ class Kindergartens extends React.Component {
                   <p className="card-text">
                     {kindergarten.attributes.INF_DESCRICAO}
                   </p>
-                  <a href="#" class="btn btn-primary">Add to Favourites</a>                  {/* <a href="/" className="btn btn-primary">
+                  <a href="#" className="btn btn-primary">
+                    Add to Favourites
+                  </a>{" "}
+                  {/* <a href="/" className="btn btn-primary">
                     Go somewhere
                   </a> */}
                 </div>

@@ -70,14 +70,24 @@ class App extends React.Component {
               return <Login setCurrentUser={this.setCurrentUser} />;
             }}
           />
-          <Route path="/schools" component={AllSchools} />;
+          <Route
+            path="/schools"
+            render={() => {
+              return <AllSchools loggedInUser={this.state.loggedInUser} />;
+            }}
+          />
           <Route
             path="/login-google"
             render={() => {
               window.location.href = `${process.env.REACT_APP_PROJECTS_API}/api/auth/google`;
             }}
           />
-          <Route path="/profile" component={Profile} />
+          <Route
+            path="/profile/:id"
+            render={() => {
+              return <Profile loggedInUser={this.state.loggedInUser} />;
+            }}
+          />
         </Switch>
       </div>
     );

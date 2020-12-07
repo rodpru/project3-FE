@@ -70,8 +70,8 @@ class Nurseries extends React.Component {
                 <div className="card-body">
                   <h5 className="card-title">{nursery.name}</h5>
                   <p className="card-text">{nursery.description}</p>
-                  <a href="#" class="btn btn-primary">
-                    Go somewhere
+                  <a href="#" className="btn btn-primary">
+                    Add to favorites
                   </a>
                 </div>
               </div>
