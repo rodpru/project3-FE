@@ -3,13 +3,24 @@ import NurseriesDB from "../utils/api";
 import { withRouter } from "react-router-dom";
 import Kindergartens from "./Kindergartens";
 import KindergartensApi from "../utils/api-cml";
+import AuthService from "../utils/auth";
 
 class Profile extends React.Component {
   state = {
-    favoriteNurseries: [],
-    favoriteKindergartens: [],
+    favorites: [],
   };
 
+  componentDidMount() {
+    const id = this.props.match.params.id;
+    // const name = this.props.loggedInUser.favorites;
+    const nurseries = new NurseriesDB();
+    nurseries.getFavorites(id).then((response) => {
+      console.log(response);
+      this.setState({
+        favorites: response.data,
+      });
+    });
+  }
   // componentDidMount() {
   //   const id = this.props.match.params.id;
   //   const nurseries = new NurseriesDB();
@@ -35,6 +46,7 @@ class Profile extends React.Component {
   //   });
   // }
   render() {
+    console.log(this.props.loggedInUser);
     return (
       <div>
         <h2>Hello from profile</h2>

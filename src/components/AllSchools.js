@@ -23,8 +23,8 @@ class AllSchools extends React.Component {
 
   addFavorite = (id) => {
     const nurseries = new NurseriesDB();
-    console.log(id);
-    console.log(this.props.loggedInUser);
+    // console.log(id);
+    // console.log(this.props.loggedInUser);
     nurseries.addFavorite(this.props.loggedInUser._id, id).then((response) => {
       console.log(response);
     });
@@ -63,7 +63,7 @@ class AllSchools extends React.Component {
 
                       <button
                         onClick={() => {
-                          this.addFavorite(nursery._id);
+                          this.addFavorite(nursery.name);
                         }}
                         className="btn btn-primary"
                       >
@@ -108,9 +108,14 @@ class AllSchools extends React.Component {
                       <p className="card-text">
                         {kindergarten.attributes.INF_DESCRICAO}
                       </p>
-                      <a href="#" className="btn btn-primary">
+                      <button
+                        onClick={() => {
+                          this.addFavorite(kindergarten.attributes.INF_NOME);
+                        }}
+                        className="btn btn-primary"
+                      >
                         Add to Favourites
-                      </a>
+                      </button>
                     </div>
                   </div>
                 );
