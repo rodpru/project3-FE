@@ -49,7 +49,7 @@ class Kindergartens extends React.Component {
           <input
             id="input-nursery"
             type="text"
-            placeholder="Search Something"
+            placeholder="search something"
           />
         </div>
         <div id="overlay" className="overlay" style={{ display: "none" }}></div>

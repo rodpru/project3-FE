@@ -51,7 +51,7 @@ class Nurseries extends React.Component {
             onClick={this.clickInput}
             id="input-nursery"
             type="text"
-            placeholder="Search Something"
+            placeholder="search something"
           />
         </div>
         <div id="overlay" className="overlay" style={{ display: "none" }}></div>
@@ -83,6 +83,7 @@ class Nurseries extends React.Component {
                       this.addFavorite(nursery.name);
                     }}
                     className="btn btn-primary"
+                    id="btn-fav-nurse"
                   >
                     Add to Favourites
                   </button>

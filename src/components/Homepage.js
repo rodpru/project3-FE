@@ -61,21 +61,29 @@ class Homepage extends React.Component {
             <div className="carousel-inner">
               <div className="carousel-item active">
                 <img
-                  src="/images/kelly-sikkema-JRVxgAkzIsM-unsplash.jpg"
+                  // id="img2"
+                  src="/images/jessica-rockowitz-5NLCaz2wJXE-unsplash.jpg"
                   className="d-block w-100"
                   alt="childrenpics"
                 />
               </div>
               <div className="carousel-item">
                 <img
-                  src="/images/pro-church-media-2DTE3ePfnD8-unsplash.jpg"
+                  src="/images/chewy-59TTmbSL1Yw-unsplash.jpg"
                   className="d-block w-100"
                   alt="childrenpics"
                 />
               </div>
               <div className="carousel-item">
                 <img
-                  src="/images/alexander-dummer-UH-xs-FizTk-unsplash.jpg"
+                  src="images/scott-webb-obKbq4Z3cuA-unsplash.jpg"
+                  className="d-block w-100"
+                  alt="childrenpics"
+                />
+              </div>
+              <div className="carousel-item">
+                <img
+                  src="/images/markus-spiske-z02yFSgVRbA-unsplash.jpg"
                   className="d-block w-100"
                   alt="childrenpics"
                 />
@@ -172,7 +180,7 @@ class Homepage extends React.Component {
                       style={{ minWidth: "30vh" }}
                     >
                       <img
-                        src="/images/thiago-cerqueira-Wr3HGvx_RSM-unsplash.jpg"
+                        src="/images/pro-church-media-2DTE3ePfnD8-unsplash.jpg"
                         className="card-img-top"
                         alt="kindergartens"
                       />
