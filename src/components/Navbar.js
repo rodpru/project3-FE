@@ -17,19 +17,30 @@ class Navbar extends React.Component {
     if (this.props.loggedInUser) {
       return (
         <nav
-          className="navbar navbar-light "
+          className="navbar sticky-top navbar-light"
+          id="nav-id2"
           style={{ backgroundColor: "#e3f2fd" }}
         >
-          <div className="nav-bar-logo"> </div>
+          <div className="nav-bar-logo">My First School</div>
           <div className="nav-bar-links">
-            <NavLink activeStyle={{ color: "red" }} exact to="/">
+            <NavLink activeStyle={{ color: "#5782ad" }} exact to="/">
               Home
             </NavLink>
-            <NavLink activeStyle={{ color: "red" }} exact to="/schools">
-              Schools
+            <NavLink activeStyle={{ color: "#5782ad" }} exact to="/schools">
+              All Schools
+            </NavLink>
+            <NavLink activeStyle={{ color: "#5782ad" }} exact to="/nurseries">
+              Nurseries
             </NavLink>
             <NavLink
-              activeStyle={{ color: "red" }}
+              activeStyle={{ color: "#5782ad" }}
+              exact
+              to="/kindergartens"
+            >
+              Kindergartens
+            </NavLink>
+            <NavLink
+              activeStyle={{ color: "#5782ad" }}
               exact
               to={`/profile/${this.props.loggedInUser._id}`}
             >
@@ -53,25 +64,38 @@ class Navbar extends React.Component {
     } else {
       return (
         <nav
-          className="navbar navbar-light "
+          className="navbar sticky-top navbar-light"
+          id="nav-id"
           style={{ backgroundColor: "#e3f2fd" }}
         >
-          <div className="nav-bar-logo">My First School</div>
-          <div className="nav-bar-links">
-            <NavLink activeStyle={{ color: "red" }} exact to="/">
-              Home
-            </NavLink>
-            <NavLink activeStyle={{ color: "red" }} exact to="/schools">
-              Schools
-            </NavLink>
-            <MyModal />
+          <div className="container-fluid">
+            <div className="nav-bar-logo">My First School</div>
+            <div className="nav-bar-links">
+              <NavLink activeStyle={{ color: "#5782ad" }} exact to="/">
+                Home
+              </NavLink>
+              <NavLink activeStyle={{ color: "#5782ad" }} exact to="/schools">
+                All Schools
+              </NavLink>
+              <NavLink activeStyle={{ color: "#5782ad" }} exact to="/nurseries">
+                Nurseries
+              </NavLink>
+              <NavLink
+                activeStyle={{ color: "#5782ad" }}
+                exact
+                to="/kindergartens"
+              >
+                Kindergartens
+              </NavLink>
+              <MyModal />
 
-            {/* <NavLink activeStyle={{ color: "red" }} exact to="/login">
+              {/* <NavLink activeStyle={{ color: "red" }} exact to="/login">
               Login
             </NavLink> */}
-            {/* <NavLink activeStyle={{ color: "red" }} exact to="/login-google">
+              {/* <NavLink activeStyle={{ color: "red" }} exact to="/login-google">
               Login With Google
             </NavLink> */}
+            </div>
           </div>
         </nav>
       );

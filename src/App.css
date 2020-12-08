@@ -2,12 +2,13 @@
 
 body {
   font-family: "PT Sans Caption", sans-serif !important;
+  background-color: #FAFAFA !important;
 }
 
 nav {
   height: 7vh!important;
-  background-color: #FAFAFA !important;
-  
+  background-color: white !important;
+  padding: 0rem !important;
 }
 
 .btn {
@@ -16,7 +17,7 @@ font-size: 1.3rem !important;
 left: 3vw !important;
 padding: 0.5rem !important;
 margin: 2px !important;
-color: #008ea7!important;
+color:#5782ad!important;
 border: 1px solid rgb(122, 116, 116) !important;
 border-radius: 10px !important;
 font-weight: bold !important;
@@ -85,6 +86,17 @@ background-repeat: no-repeat !important;
 }
 
 
+.card-deck {
+  justify-content: center;
+  padding: 2vh 2vw 10vh 2vw
+}
+.card {
+  margin: 2vh 2vw;
+}
+img.card-img-top{
+   padding-top: 2vh;
+
+}
 
 
 

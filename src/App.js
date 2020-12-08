@@ -13,6 +13,8 @@ import Kindergartens from "./components/Kindergartens";
 import Nurseries from "./components/Nurseries";
 import Profile from "./components/Profile";
 import Details from "./components/Details";
+import "./components/Navbar.css";
+import Footer from "./components/Footer";
 
 class App extends React.Component {
   state = {
@@ -48,20 +50,6 @@ class App extends React.Component {
         />
         <Switch>
           <Route exact path="/" component={Homepage} />
-          {/* <Route exact path="/schools" component={ListProjects} /> */}
-          {/* <Route
-            exact
-            path="/projects/add"
-            render={() => {
-              if (localStorage.getItem("loggedInUser")) {
-                return <AddProject />;
-              } else {
-                return <Redirect to="/login" />;
-              }
-            }}
-          />
-          <Route exact path="/projects/:id" component={ProjectDetail} />
-          <Route path="/projects/:id/edit" component={EditProject} /> */}
           <Route path="/signup" component={Signup} />
           <Route path="/kindergartens" component={Kindergartens} />
           <Route path="/nurseries" component={Nurseries} />
@@ -91,6 +79,7 @@ class App extends React.Component {
           />
           <Route path="/:id" component={Details} />
         </Switch>
+        <Footer />
       </div>
     );
   }

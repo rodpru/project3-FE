@@ -1,0 +1,32 @@
+footer{
+    padding-top: 10px;
+    padding-bottom: 10px;
+    text-align: left;
+    background-color: #E8E8E8;
+    color: #585656;
+    font-size: 12px;
+}
+
+#footer-p {
+    margin-left: 2vw;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.bottom-section {
+    border-top: 3px solid #E8E8E8;
+    background: #FFFFFF;
+    color: #5782ad;
+    padding-top: 45px;
+    text-align: left;
+    font-size: 13px; 
+}
+
+.bottom-h5 {
+    padding-bottom: 1em;
+    color:#5c5b5b;
+}
+
+.bottom-p {
+color: #5c5b5b;
+}

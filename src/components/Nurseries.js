@@ -1,6 +1,7 @@
 import React from "react";
 import NurseriesDB from "../utils/api";
 import "./Nurserie.css";
+import { Link } from "react-router-dom";
 
 class Nurseries extends React.Component {
   state = {
@@ -54,6 +55,10 @@ class Nurseries extends React.Component {
           />
         </div>
         <div id="overlay" className="overlay" style={{ display: "none" }}></div>
+        <h2 className="title">
+          <b>Nurseries</b>
+        </h2>
+        <p className="title">Find the best nurseries in Lisbon</p>
         <div className="card-deck d-flex flex-wrap">
           {this.state.nurseries.map((nursery, index) => {
             return (
@@ -63,16 +68,24 @@ class Nurseries extends React.Component {
                 style={{ minWidth: "55vh" }}
               >
                 <img
-                  src="/images/annie-spratt-fBrGckWLQ0Q-unsplash.jpg"
+                  src={nursery.photo}
                   className="card-img-top"
-                  alt="..."
+                  alt="nursery"
                 />
                 <div className="card-body">
-                  <h5 className="card-title">{nursery.name}</h5>
+                  <Link to={{ pathname: `/${nursery._id}`, state: nursery }}>
+                    {" "}
+                    <h5 className="card-title">{nursery.name}</h5>{" "}
+                  </Link>
                   <p className="card-text">{nursery.description}</p>
-                  <a href="#" className="btn btn-primary">
-                    Add to favorites
-                  </a>
+                  <button
+                    onClick={() => {
+                      this.addFavorite(nursery.name);
+                    }}
+                    className="btn btn-primary"
+                  >
+                    Add to Favourites
+                  </button>
                 </div>
               </div>
             );

@@ -50,10 +50,6 @@ class Homepage extends React.Component {
   }
 
   render() {
-    // function getRandomKindergarten(items) {
-    //   return [Math.floor(Math.random() * items.length)];
-    // }
-
     return (
       <div>
         <div id="home-container">
@@ -140,19 +136,22 @@ class Homepage extends React.Component {
                     <div
                       className="card col-sm-3"
                       key={index}
-                      style={{ width: "200px" }}
+                      style={{ minWidth: "30vh" }}
                     >
                       <img
-                        src="/images/annie-spratt-fBrGckWLQ0Q-unsplash.jpg"
+                        src={nursery.photo}
                         className="card-img-top"
                         alt="nurseries"
                       />
                       <div className="card-body">
-                        <h5 className="card-title">{nursery.name}</h5>
-                        <p className="card-text">{nursery.description}</p>
-                        <a href="#" className="btn btn-primary">
-                          Add to favorites
-                        </a>
+                        <Link
+                          to={{ pathname: `/${nursery._id}`, state: nursery }}
+                        >
+                          {" "}
+                          <h5 className="card-title">{nursery.name}</h5>{" "}
+                        </Link>
+                        <p className="card-text">❢ {nursery.address}</p>
+                        <p className="card-text">tel: {nursery.phone}</p>
                       </div>
                     </div>
                   );
@@ -170,7 +169,7 @@ class Homepage extends React.Component {
                     <div
                       className="card col-sm-3"
                       key={index}
-                      style={{ width: "200px" }}
+                      style={{ minWidth: "30vh" }}
                     >
                       <img
                         src="/images/thiago-cerqueira-Wr3HGvx_RSM-unsplash.jpg"
@@ -178,15 +177,24 @@ class Homepage extends React.Component {
                         alt="kindergartens"
                       />
                       <div className="card-body">
-                        <h5 className="card-title">
-                          {kindergarten.attributes.INF_NOME}
-                        </h5>
+                        <Link
+                          to={{
+                            pathname: `/${kindergarten.attributes.GlobalID}`,
+                            state: kindergarten,
+                          }}
+                        >
+                          {" "}
+                          <h5 className="card-title">
+                            {kindergarten.attributes.INF_NOME}
+                          </h5>{" "}
+                        </Link>
                         <p className="card-text">
-                          {kindergarten.attributes.INF_DESCRICAO}
+                          ❢ {kindergarten.attributes.INF_MORADA}
                         </p>
-                        <a href="#" className="btn btn-primary">
-                          Add to favorites
-                        </a>
+                        <p className="card-text">
+                          tel:
+                          {kindergarten.attributes.INF_TELEFONE}
+                        </p>
                       </div>
                     </div>
                   );

@@ -1,5 +1,6 @@
 import React from "react";
 import KindergartensApi from "../utils/api-cml";
+import { Link } from "react-router-dom";
 
 class Kindergartens extends React.Component {
   state = {
@@ -52,6 +53,10 @@ class Kindergartens extends React.Component {
           />
         </div>
         <div id="overlay" className="overlay" style={{ display: "none" }}></div>
+        <h2 className="title">
+          <b>Kindergartens</b>
+        </h2>
+        <p className="title">Find the best kindergartens in Lisbon</p>
         <div className="card-deck d-flex flex-wrap">
           {this.state.kindergartens.map((kindergarten, index) => {
             return (
@@ -60,17 +65,30 @@ class Kindergartens extends React.Component {
                 key={index}
                 style={{ minWidth: "55vh" }}
               >
-                <img src="..." className="card-img-top" alt="..." />
+                <img src="..." className="card-img-top" alt="kindergarten" />
                 <div className="card-body">
-                  <h5 className="card-title">
-                    {kindergarten.attributes.INF_NOME}
-                  </h5>
+                  <Link
+                    to={{
+                      pathname: `/${kindergarten.attributes.GlobalID}`,
+                      state: kindergarten,
+                    }}
+                  >
+                    {" "}
+                    <h5 className="card-title">
+                      {kindergarten.attributes.INF_NOME}
+                    </h5>{" "}
+                  </Link>
                   <p className="card-text">
                     {kindergarten.attributes.INF_DESCRICAO}
                   </p>
-                  <a href="#" className="btn btn-primary">
+                  <button
+                    onClick={() => {
+                      this.addFavorite(kindergarten.attributes.INF_NOME);
+                    }}
+                    className="btn btn-primary"
+                  >
                     Add to Favourites
-                  </a>{" "}
+                  </button>{" "}
                   {/* <a href="/" className="btn btn-primary">
                     Go somewhere
                   </a> */}

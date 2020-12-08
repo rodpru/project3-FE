@@ -1,6 +1,16 @@
 .nav-bar-links a {
   padding: 1vw;
+  color: black;
 }
+
+#nav-id {
+  background-color: white; opacity: 0.9; filter: alpha(opacity=0);
+}
+
+#nav-id2 {
+  background-color: #FFFFFF; opacity: 0.9; filter: alpha(opacity=50);
+}
+
 .google-icon {
   width: 7vw;
 }
@@ -24,7 +34,9 @@ form button {
 }
 .nav-bar-logo {
   font-family: 'Nerko One', cursive;
-  font-size: 2rem;
+  font-size: 1.5rem;
   color: #9BBBDF;
-  margin-top: -2vh;  
+  margin-top: 0vh;  
+  margin-left: 1vh;
 } 
+

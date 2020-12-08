@@ -1,14 +1,4 @@
-.card-deck {
-  justify-content: center;
-  padding: 2vh 2vw 10vh 2vw
-}
-.card {
-  margin: 2vh 2vw;
-}
-img.card-img-top{
-   padding-top: 2vh;
 
-}
 .search{
   top: 5rem;
   left: 55rem;
