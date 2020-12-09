@@ -2,6 +2,7 @@ import React from "react";
 import { withRouter } from "react-router-dom";
 import KindergartensApi from "../utils/api-cml";
 import NurseriesDB from "../utils/api";
+import "./Details.css";
 
 class Details extends React.Component {
   state = {
@@ -24,15 +25,90 @@ class Details extends React.Component {
 
   render() {
     if (this.state.school.attributes) {
+      const x = this.state.school.geometry.x;
+      const y = this.state.school.geometry.y;
+      console.log(this.state.school.attributes, "API");
       return (
-        <div>
-          <h1> {this.state.school.attributes.INF_NOME}</h1>
+        <div className="container-flex-details">
+          <div className="details-row">
+            <div className="column-details">
+              <div className="detail-photo">
+                <img
+                  src="https://res.cloudinary.com/dgyg9zh3a/image/upload/v1607423361/Nurseries/pro-church-media-2DTE3ePfnD8-unsplash_qpndxi.jpg"
+                  alt="index"
+                />
+              </div>
+            </div>
+            <div className="column-details">
+              <div className="text-details">
+                <h2> {this.state.school.attributes.INF_NOME}</h2> <br />
+                <p>{this.state.school.attributes.INF_DESCRICAO}</p>
+                <p>Address: {this.state.school.attributes.INF_MORADA}</p>
+                <p></p>
+                <p>Email: {this.state.school.attributes.INF_EMAIL}</p>
+                <p>Tel: {this.state.school.attributes.INF_TELEFONE}</p> <br />
+                <p className="detail-footer">
+                  {" "}
+                  <a
+                    href={this.state.school.attributes.INF_SITE}
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    WebSite
+                  </a>{" "}
+                  ||{" "}
+                  <a
+                    href={`http://maps.google.com/maps?q=${y}, ${x}`}
+                    target="_blank" // abre novo separador
+                    rel="noreferrer"
+                  >
+                    See on the Map
+                  </a>
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
       );
     } else {
+      console.log(this.state.school.geo.lat);
       return (
-        <div>
-          <p>{this.state.school.name}</p>
+        // <p>{this.state.school.name}</p>
+        <div className="container-flex-details">
+          <div className="details-row">
+            <div className="column-details">
+              <div className="detail-photo">
+                <img src={this.state.school.photo} alt="index" />
+              </div>
+            </div>
+            <div className="column-details">
+              <div className="text-details">
+                <h2> {this.state.school.name}</h2> <br />
+                <p>{this.state.school.description}</p>
+                <p>Address: {this.state.school.address}</p>
+                <p>Email: {this.state.school.email}</p>
+                <p>Tel: {this.state.school.phone}</p> <br />
+                <p className="detail-footer">
+                  {" "}
+                  <a
+                    href={this.state.school.site}
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    WebSite
+                  </a>{" "}
+                  ||{" "}
+                  <a
+                    href={`http://maps.google.com/maps?q=${this.state.school.geo.lat}, ${this.state.school.geo.lng}`}
+                    target="_blank" // abre novo separador
+                    rel="noreferrer"
+                  >
+                    See on the Map{" "}
+                  </a>
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
       );
     }
