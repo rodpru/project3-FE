@@ -1,6 +1,9 @@
 import React from "react";
 import KindergartensApi from "../utils/api-cml";
-import { Link } from "react-router-dom";
+import { withRouter, Redirect, Link } from "react-router-dom";
+import NurseriesDB from "../utils/api";
+import "react-toastify/dist/ReactToastify.css";
+import { toast } from "react-toastify";
 
 class Kindergartens extends React.Component {
   state = {
@@ -22,6 +25,20 @@ class Kindergartens extends React.Component {
       });
     });
   }
+
+  addFavorite = (id) => {
+    const nurseries = new NurseriesDB();
+    // console.log(id);
+    // console.log(this.props.loggedInUser);
+    this.props.loggedInUser
+      ? nurseries
+          .addFavorite(this.props.loggedInUser._id, id)
+          .then((response) => {
+            console.log(response);
+          })
+      : toast("Login or signup please!");
+    // : this.props.history.push("/");
+  };
 
   render() {
     return (
@@ -65,7 +82,11 @@ class Kindergartens extends React.Component {
                 key={index}
                 style={{ minWidth: "55vh" }}
               >
-                <img src="..." className="card-img-top" alt="kindergarten" />
+                <img
+                  src="/images/pro-church-media-2DTE3ePfnD8-unsplash.jpg"
+                  className="card-img-top"
+                  alt="kindergarten"
+                />
                 <div className="card-body">
                   <Link
                     to={{
@@ -102,4 +123,4 @@ class Kindergartens extends React.Component {
   }
 }
 
-export default Kindergartens;
+export default withRouter(Kindergartens);

@@ -2,6 +2,8 @@ import React from "react";
 import NurseriesDB from "../utils/api";
 import "./Nurserie.css";
 import { Link } from "react-router-dom";
+import "react-toastify/dist/ReactToastify.css";
+import { toast } from "react-toastify";
 
 class Nurseries extends React.Component {
   state = {
@@ -23,6 +25,20 @@ class Nurseries extends React.Component {
       });
     });
   }
+
+  addFavorite = (id) => {
+    const nurseries = new NurseriesDB();
+    // console.log(id);
+    // console.log(this.props.loggedInUser);
+    this.props.loggedInUser
+      ? nurseries
+          .addFavorite(this.props.loggedInUser._id, id)
+          .then((response) => {
+            console.log(response);
+          })
+      : toast("Login or signup please!");
+    // : this.props.history.push("/");
+  };
 
   render() {
     return (

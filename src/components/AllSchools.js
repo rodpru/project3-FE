@@ -4,6 +4,8 @@ import KindergartensApi from "../utils/api-cml";
 import { Link } from "react-router-dom";
 import "./Nurserie.css";
 import "../App.css";
+import "react-toastify/dist/ReactToastify.css";
+import { toast } from "react-toastify";
 
 class AllSchools extends React.Component {
   state = {
@@ -27,9 +29,14 @@ class AllSchools extends React.Component {
     const nurseries = new NurseriesDB();
     // console.log(id);
     // console.log(this.props.loggedInUser);
-    nurseries.addFavorite(this.props.loggedInUser._id, id).then((response) => {
-      console.log(response);
-    });
+    this.props.loggedInUser
+      ? nurseries
+          .addFavorite(this.props.loggedInUser._id, id)
+          .then((response) => {
+            console.log(response);
+          })
+      : toast("Login or signup please!");
+    // : this.props.history.push("/");
   };
 
   render() {

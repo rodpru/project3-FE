@@ -1,7 +1,8 @@
 import React from "react";
 import AuthService from "../utils/auth";
 import { NavLink } from "react-router-dom";
-
+import "react-toastify/dist/ReactToastify.css";
+import { toast } from "react-toastify";
 import { Link, withRouter } from "react-router-dom";
 
 class Login extends React.Component {
@@ -22,8 +23,10 @@ class Login extends React.Component {
     authService.login(username, password).then((response) => {
       //lifting the state, function passed from App.js as props
       this.props.setCurrentUser(response.data);
+      //toast(`Welcome ${username}`);
       //save user id to browser local storage
       localStorage.setItem("loggedInUser", response.data._id);
+
       this.props.history.push("/projects");
     });
   };
@@ -34,7 +37,11 @@ class Login extends React.Component {
         <div className="container-login">
           <div className="google-oauth">
             <button>
-              <img src="../../images/google.png" className="google-icon" />
+              <img
+                src="../../images/google.png"
+                className="google-icon"
+                alt="google-icon"
+              />
               <NavLink activeStyle={{ color: "red" }} exact to="/login-google">
                 Login With Google
               </NavLink>

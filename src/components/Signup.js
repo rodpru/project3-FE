@@ -41,6 +41,7 @@ class Signup extends React.Component {
           Already have account?
           <Link to={"/login"}> Login</Link>
         </p>
+        <div className="container" style={{ minHeight: "300px" }}></div>
       </div>
     );
   }

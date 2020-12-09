@@ -149,6 +149,7 @@ class Homepage extends React.Component {
                       <img
                         src={nursery.photo}
                         className="card-img-top"
+                        id="card-img-1"
                         alt="nurseries"
                       />
                       <div className="card-body">
@@ -182,6 +183,7 @@ class Homepage extends React.Component {
                       <img
                         src="/images/pro-church-media-2DTE3ePfnD8-unsplash.jpg"
                         className="card-img-top"
+                        id="card-img-2"
                         alt="kindergartens"
                       />
                       <div className="card-body">

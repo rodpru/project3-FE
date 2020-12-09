@@ -51,8 +51,18 @@ class App extends React.Component {
         <Switch>
           <Route exact path="/" component={Homepage} />
           <Route path="/signup" component={Signup} />
-          <Route path="/kindergartens" component={Kindergartens} />
-          <Route path="/nurseries" component={Nurseries} />
+          <Route
+            path="/kindergartens"
+            render={() => {
+              return <Kindergartens loggedInUser={this.state.loggedInUser} />;
+            }}
+          />
+          <Route
+            path="/nurseries"
+            render={() => {
+              return <Nurseries loggedInUser={this.state.loggedInUser} />;
+            }}
+          />
           <Route
             path="/login"
             render={() => {
@@ -79,7 +89,10 @@ class App extends React.Component {
           />
           <Route path="/:id" component={Details} />
         </Switch>
-        <Footer />
+        <Footer
+          loggedInUser={this.state.loggedInUser}
+          setCurrentUser={this.setCurrentUser}
+        />
       </div>
     );
   }

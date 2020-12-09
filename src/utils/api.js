@@ -31,9 +31,9 @@ class NurseriesDB {
   //   return this.service.post("/projects", project);
   // }
   // //create a delete project function for our projectService
-  // deleteProject(id) {
-  //   return this.service.delete(`/projects/${id}`);
-  // }
+  deleteFavorite(id) {
+    return this.service.delete(`/schools/${id}`);
+  }
   // updateProject(updatedProject) {
   //   return this.service.put(`/projects/${updatedProject.id}`, updatedProject);
   // }
