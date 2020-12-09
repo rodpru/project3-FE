@@ -5,6 +5,10 @@ body {
   background-color: #FAFAFA !important;
 }
 
+#home-container {
+margin-bottom: -20%;
+}
+
 nav {
   height: 7vh!important;
   background-color: white !important;
@@ -63,6 +67,15 @@ background-position: center center !important;
       margin-top: 50px !important;
       bottom: 50rem;
       padding: 0px 60px 0px 10px;
+  }
+  #card-img-1 {
+    min-height: 22vh;
+  }
+  #card-img-2 {
+    min-height: 22vh;
+  }
+  #nurse-kind-cards {
+    margin-top: -240px;
   }
   html {
     font-size: 11px !important;
