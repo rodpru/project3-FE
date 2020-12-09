@@ -1,0 +1,23 @@
+.details-row {
+  display: flex;
+  flex-direction: column;
+  padding: 10vh 10vw;
+}
+.column-details {
+  align-self: center;
+  flex-direction: column;
+}
+.detail-photo img{
+  width: 60vw;
+}
+
+.text-details {
+  margin-left: 5vw;
+}
+
+.text-details h2 {
+  text-align: center;
+}
+.detail-footer {
+  
+}
