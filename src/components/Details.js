@@ -1,32 +1,32 @@
 import React from "react";
 import { withRouter } from "react-router-dom";
 import KindergartensApi from "../utils/api-cml";
-import NurseriesDB from "../utils/api";
 import "./Details.css";
 
 class Details extends React.Component {
   state = {
     school: this.props.location.state,
-    // name: "",
-    // address: "",
-    // description: "",
-    // email: "",
-    // site: "",
-    // phone: "",
-    // rating: "",
-    // photo: "",
-    // globalID: "",
-    // schoolType: "",
-    // geo: {
-    //   lat: "",
-    //   lng: "",
-    // },
+    kindergarten: null,
+    loaded: false
   };
 
+  componentDidMount() {
+    const kindergartens = new KindergartensApi();
+    kindergartens.getAllKindergartens().then((response) => {
+      let thisKindergarten = response.data.features.filter(school => {
+        return school.attributes.GlobalID === this.state.school.GlobalID
+      })
+      return this.setState({
+        kindergarten: thisKindergarten[0],
+        loaded: true
+      });
+    });
+  }
+
   render() {
-    if (this.state.school.attributes) {
-      const x = this.state.school.geometry.x;
-      const y = this.state.school.geometry.y;
+    if (this.state.school.schoolType === 'kindergarten' && this.state.loaded) {
+      const x = this.state.kindergarten.geometry.x;
+      const y = this.state.kindergarten.geometry.y;
       // console.log(this.state.school.attributes, "API");
       return (
         <div className="container-flex-details">
@@ -41,16 +41,16 @@ class Details extends React.Component {
             </div>
             <div className="column-details">
               <div className="text-details">
-                <h2> {this.state.school.attributes.INF_NOME}</h2> <br />
-                <p>{this.state.school.attributes.INF_DESCRICAO}</p>
-                <p>Address: {this.state.school.attributes.INF_MORADA}</p>
+                <h2> {this.state.kindergarten.attributes.INF_NOME}</h2> <br />
+                <p>{this.state.kindergarten.attributes.INF_DESCRICAO}</p>
+                <p>Address: {this.state.kindergarten.attributes.INF_MORADA}</p>
                 <p></p>
-                <p>Email: {this.state.school.attributes.INF_EMAIL}</p>
-                <p>Tel: {this.state.school.attributes.INF_TELEFONE}</p> <br />
+                <p>Email: {this.state.kindergarten.attributes.INF_EMAIL}</p>
+                <p>Tel: {this.state.kindergarten.attributes.INF_TELEFONE}</p> <br />
                 <p className="detail-footer">
                   {" "}
                   <a
-                    href={this.state.school.attributes.INF_SITE}
+                    href={this.state.kindergarten.attributes.INF_SITE}
                     target="_blank"
                     rel="noreferrer"
                   >
@@ -70,7 +70,7 @@ class Details extends React.Component {
           </div>
         </div>
       );
-    } else {
+    } else if(this.state.school.schoolType === 'nursery') {
       // console.log(this.state.school.geo.lat);
       return (
         // <p>{this.state.school.name}</p>
@@ -88,7 +88,7 @@ class Details extends React.Component {
                 <p>Address: {this.state.school.address}</p>
                 <p>Email: {this.state.school.email}</p>
                 <p>Tel: {this.state.school.phone}</p> <br />
-                <p className="detail-footer">
+                 <p className="detail-footer">
                   {" "}
                   <a
                     href={this.state.school.site}
@@ -105,12 +105,17 @@ class Details extends React.Component {
                   >
                     See on the Map{" "}
                   </a>
-                </p>
+                </p>  
               </div>
             </div>
           </div>
         </div>
       );
+    } else {
+      return (
+
+        <p>Loading</p>
+      )
     }
   }
 }

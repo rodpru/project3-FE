@@ -28,9 +28,10 @@ class Profile extends React.Component {
   }
 
   handleDeleteFavorite = (id) => {
+    let userId = this.props.match.params.id;
     const nurseries = new NurseriesDB();
     console.log(id);
-    nurseries.deleteFavorite(id).then(() => {
+    nurseries.deleteFavorite(id, userId).then(() => {
       this.getFavorites2();
       // this.props.history.push(`/profile/${id}`);
       console.log({ message: "the school was deleted" });
@@ -38,7 +39,7 @@ class Profile extends React.Component {
   };
 
   render() {
-    console.log(this.state);
+    console.log(this.state, "profile state");
     return (
       <div className="container" style={{ minHeight: "300px" }}>
         {/* <h2>Your favorites is empty</h2> */}
@@ -56,7 +57,15 @@ class Profile extends React.Component {
                   alt="nurseries"
                 />
                 <div className="card-body">
-                  <Link to={{ pathname: `/${school._id}`, state: school }}>
+                  <Link
+                    to={{
+                      pathname:
+                        school.schoolType === "kindergarten"
+                          ? `/${school.GlobalID}`
+                          : `/${school._id}`,
+                      state: school,
+                    }}
+                  >
                     {" "}
                     <h5 className="card-title">{school.name}</h5>{" "}
                   </Link>
