@@ -45,5 +45,8 @@
   z-index: 1;
 }
 
-/* #btn-fav-nurse {
-} */
+#btn-fav-nurse {
+  position: absolute !important;
+  bottom:20px !important;
+  left: 5.5rem !important;
+}

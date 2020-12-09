@@ -27,7 +27,7 @@ class Details extends React.Component {
     if (this.state.school.attributes) {
       const x = this.state.school.geometry.x;
       const y = this.state.school.geometry.y;
-      console.log(this.state.school.attributes, "API");
+      // console.log(this.state.school.attributes, "API");
       return (
         <div className="container-flex-details">
           <div className="details-row">
@@ -71,7 +71,7 @@ class Details extends React.Component {
         </div>
       );
     } else {
-      console.log(this.state.school.geo.lat);
+      // console.log(this.state.school.geo.lat);
       return (
         // <p>{this.state.school.name}</p>
         <div className="container-flex-details">
