@@ -28,7 +28,7 @@ class Kindergartens extends React.Component {
 
   addFavorite = (id) => {
     const nurseries = new NurseriesDB();
-    // console.log(id);
+ 
     // console.log(this.props.loggedInUser);
     this.props.loggedInUser
       ? nurseries
