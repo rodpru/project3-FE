@@ -11,12 +11,22 @@ class Details extends React.Component {
   };
 
   componentDidMount() {
+    debugger;
+    if (!this.state.school.schoolType) {
+      let newSchool = { ...this.state.school };
+      newSchool.schoolType = "kindergarten";
+      newSchool.GlobalID = this.state.school.attributes.GlobalID;
+      this.setState({
+        school: newSchool,
+      });
+    }
     const kindergartens = new KindergartensApi();
     kindergartens.getAllKindergartens().then((response) => {
       let thisKindergarten = response.data.features.filter((school) => {
         return school.attributes.GlobalID === this.state.school.GlobalID;
       });
-      return this.setState({
+      debugger;
+      this.setState({
         kindergarten: thisKindergarten[0],
         loaded: true,
       });
