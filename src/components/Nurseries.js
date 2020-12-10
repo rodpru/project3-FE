@@ -28,6 +28,7 @@ class Nurseries extends React.Component {
           .addFavorite(this.props.loggedInUser._id, id)
           .then((response) => {
             console.log(response);
+            toast("Added to favorites");
           })
       : toast("Login or signup please!");
     // : this.props.history.push("/");
