@@ -29,19 +29,36 @@ class Footer extends React.Component {
               <h5 className="bottom-h5">FOLLOW US</h5>
               <a href="/" className="bottom-p">
                 <img
+                  id="fb-icon"
                   src="/Icons/fb-icon.png"
                   alt="facebook-icon"
-                  style={{ width: "33px", height: "25px" }}
+                  style={{ width: "30px", height: "23px" }}
                 />
               </a>
               <hr />
               <a href="/" className="bottom-p">
-                Instagram
+                <img
+                  src="/Icons/ig vector.jpeg"
+                  alt="IG-icon"
+                  style={{
+                    width: "25px",
+                    height: "22px",
+                    bottom: "5px",
+                  }}
+                />
               </a>
 
               <hr />
               <a href="/" className="bottom-p">
-                LinkedIn
+                <img
+                  src="/Icons/lkin 8.png"
+                  alt="linkedIn-icon"
+                  style={{
+                    width: "26px",
+                    height: "24px",
+                    bottom: "5px",
+                  }}
+                />
               </a>
               <hr />
             </div>

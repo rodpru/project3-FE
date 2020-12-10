@@ -42,6 +42,7 @@ class Details extends React.Component {
             <div className="column-details">
               <div className="detail-photo">
                 <img
+                  id="img-details"
                   src="https://res.cloudinary.com/dgyg9zh3a/image/upload/v1607423361/Nurseries/pro-church-media-2DTE3ePfnD8-unsplash_qpndxi.jpg"
                   alt="index"
                 />

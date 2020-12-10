@@ -1,20 +1,28 @@
 .details-row {
   display: flex;
   flex-direction: column;
-  padding: 10vh 10vw;
+  padding: 0vh 10vw;
 }
 .column-details {
   align-self: center;
   flex-direction: column;
 }
 .detail-photo img{
-  width: 60vw;
+  width: 43vw;
+  height: auto;
+  border: 1px solid #5782ad !important;
+  object-fit: cover !important;
 }
 
 .text-details {
   margin-left: 5vw;
+  /* margin-top: 3vh; */
+  /* background-color: rgb(245, 245, 245); */
+  padding: 1rem 3rem;
 }
 
 .text-details h2 {
   text-align: center;
+
 }
+

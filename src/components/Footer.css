@@ -13,6 +13,11 @@ footer{
     margin-bottom: 0.5rem;
 }
 
+#fb-icon {
+    position: relative;
+    right: 2px !important;
+}
+
 .bottom-section {
     border-top: 4px solid #E8E8E8;
     background: #FFFFFF;
