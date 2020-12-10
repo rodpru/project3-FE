@@ -16,7 +16,6 @@ class Navbar extends React.Component {
     });
   };
 
-
   logoutUser = () => {
     const authService = new AuthService();
     authService.logout().then(() => {
@@ -61,7 +60,7 @@ class Navbar extends React.Component {
                 onClick={this.clickInput}
                 id="input-nursery"
                 type="text"
-                placeholder="search something"
+                placeholder="search"
               />
             </div>
             <div
@@ -124,8 +123,8 @@ class Navbar extends React.Component {
                 <svg
                   onClick={this.clickIcon}
                   id="icon"
-                  width="1em"
-                  height="1em"
+                  width="0.8em"
+                  height="0.8em"
                   viewBox="0 0 16 16"
                   className="bi bi-search"
                   fill="currentColor"
@@ -144,7 +143,7 @@ class Navbar extends React.Component {
                   onClick={this.clickInput}
                   id="input-nursery"
                   type="text"
-                  placeholder="search something"
+                  placeholder="search"
                 />
               </div>
               <div
@@ -168,7 +167,7 @@ class Navbar extends React.Component {
               >
                 Kindergartens
               </NavLink>
-              <MyModal />
+              <MyModal setCurrentUser={this.props.setCurrentUser} />
 
               {/* <NavLink activeStyle={{ color: "red" }} exact to="/login">
               Login

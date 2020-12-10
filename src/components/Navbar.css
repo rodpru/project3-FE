@@ -13,6 +13,31 @@
 
 .google-icon {
   width: 7vw;
+ 
+}
+
+.container-login {
+ margin-bottom: 5rem !important;
+ 
+}
+#login-btn-google {
+  font-size: 20px!important;
+  position: relative !important;
+  align-items: center !important;
+  left: 2rem !important;
+  bottom: 0.5rem !important;
+  width: 8rem !important;
+
+}
+
+#google-btn {
+  font-size: 20px!important;
+  position: relative !important;
+  left: 0rem !important;
+  width: 14rem !important;
+}
+.modal-body {
+  background-color: #FAFAFA !important;
 }
 .container-login{
   margin-top: 10vh;

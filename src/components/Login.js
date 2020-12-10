@@ -23,11 +23,11 @@ class Login extends React.Component {
     authService.login(username, password).then((response) => {
       //lifting the state, function passed from App.js as props
       this.props.setCurrentUser(response.data);
-      //toast(`Welcome ${username}`);
+      toast(`Welcome ${username}`);
       //save user id to browser local storage
       localStorage.setItem("loggedInUser", response.data._id);
 
-      this.props.history.push("/projects");
+      this.props.history.push("/schools");
     });
   };
 

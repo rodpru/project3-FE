@@ -15,7 +15,7 @@ class Signup extends React.Component {
     event.preventDefault();
     const authService = new AuthService();
     authService.signup(this.state.username, this.state.password).then(() => {
-      this.props.history.push("/projects");
+      this.props.history.push("/schools");
     });
   };
   render() {

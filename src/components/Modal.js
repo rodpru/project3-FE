@@ -38,7 +38,7 @@ class MyModal extends React.Component {
       this.props.setCurrentUser(response.data);
       //save user id to browser local storage
       localStorage.setItem("loggedInUser", response.data._id);
-      this.props.history.push("/projects");
+      this.props.history.push("/schools");
     });
   };
 
@@ -84,6 +84,8 @@ class MyModal extends React.Component {
                   to="/login-google"
                 >
                   <button
+                    id="google-btn"
+                    className="btn btn-primary"
                     style={{
                       borderRadius: "15px",
                       height: "9vh",
@@ -91,6 +93,7 @@ class MyModal extends React.Component {
                       justifyContent: "space-evenly",
                       display: "flex",
                       alignItems: "center",
+                      padding: "5px",
                     }}
                   >
                     {" "}
@@ -102,7 +105,7 @@ class MyModal extends React.Component {
                       alt="google-logo"
                       className="google-icon"
                     />
-                    Google Log In
+                    Google Login
                   </button>
                 </NavLink>
               </div>
@@ -112,7 +115,7 @@ class MyModal extends React.Component {
                   <input
                     type="text"
                     name="username"
-                    placeholder="Your Username Here!"
+                    placeholder="Username"
                     value={this.state.username}
                     onChange={this.handleChange}
                   />{" "}
@@ -121,17 +124,22 @@ class MyModal extends React.Component {
                   <input
                     type="password"
                     name="password"
-                    placeholder="Your Password Here!"
+                    placeholder="Password"
                     value={this.state.password}
                     onChange={this.handleChange}
                   />
                   <br />
-                  <button>Login</button>
+                  <button id="login-btn-google" className="btn btn-primary">
+                    Login
+                  </button>
                 </form>
               </div>
               <p>
                 Don't have account?
-                <Link to={"/signup"}> Signup</Link>
+                <Link onClick={this.handleClose} to={"/signup"}>
+                  {" "}
+                  Signup
+                </Link>
               </p>
             </div>
           </Modal.Body>

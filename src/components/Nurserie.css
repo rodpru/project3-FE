@@ -9,19 +9,21 @@
   padding-bottom: -3vh;
   padding-left: 92%;
 }
-.search svg {
-  width: 3rem;
+.search svg { 
+  width: 1rem;
   position: relative;
   z-index: 1;
   transform: scale(1) translateX(0);
   transition: transform 0.15s linear;
 }
 .search input {
-  background-color: #e4e4e4;
-  width: 16rem;
-  height: 2.8rem;
+  position: relative;
+  background-color: #FAFAFA;
+  width: 13rem;
+  height: 1.6rem;
+  top: 0.9rem;
   position: absolute;
-  right: 31rem;
+  right: 32.7rem;
   border-radius: 20px;
   color: #212121;
   padding: 0 3rem 0 1.3rem;
