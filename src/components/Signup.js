@@ -1,6 +1,6 @@
 import React from "react";
 import AuthService from "../utils/auth";
-import { Link, withRouter } from "react-router-dom";
+import { Link, withRouter, NavLink } from "react-router-dom";
 import { toast } from "react-toastify";
 
 class Signup extends React.Component {
@@ -29,28 +29,64 @@ class Signup extends React.Component {
   render() {
     return (
       <div>
-        <form onSubmit={this.handleFormSubmit}>
-          <label>Username:</label>
-          <input
-            type="text"
-            name="username"
-            value={this.state.username}
-            onChange={this.handleChange}
-          />
-          <label>Password:</label>
-          <input
-            type="password"
-            name="password"
-            value={this.state.password}
-            onChange={this.handleChange}
-          />
-          <input type="submit" value="Signup" />
-        </form>
-        <p>
-          Already have account?
-          <Link to={"/login"}> Login</Link>
-        </p>
-        <div className="container" style={{ minHeight: "300px" }}></div>
+        <div className="container-login">
+          <div className="google-oauth">
+            <button
+              className="btn btn-primary"
+              id="google-btn3"
+              style={{
+                borderRadius: "15px",
+                height: "9vh",
+                width: "25vw",
+                justifyContent: "space-evenly",
+                display: "flex",
+                alignItems: "center",
+                padding: "5px",
+              }}
+            >
+              <img
+                src="../../images/google.png"
+                style={{
+                  width: "4vw",
+                }}
+                className="google-icon"
+                alt="google-icon"
+              />
+              <NavLink activeStyle={{ color: "red" }} exact to="/login-google">
+                Signup with Google
+              </NavLink>
+            </button>
+          </div>
+          <div className="login-signup">
+            <form onSubmit={this.handleFormSubmit}>
+              {/* <label>Username:</label> */}
+              <input
+                type="text"
+                name="username"
+                placeholder="Choose your Username"
+                value={this.state.username}
+                onChange={this.handleChange}
+              />{" "}
+              <br />
+              {/* <label>Password:</label> */}
+              <input
+                type="password"
+                name="password"
+                placeholder="Choose your Password"
+                value={this.state.password}
+                onChange={this.handleChange}
+              />
+              <br />
+              <button className="btn btn-primary" id="login-btn-google">
+                Create
+              </button>
+            </form>
+          </div>
+          {/* <p>
+            Already have an account
+            <Link to={"/signin"}> Signin</Link>
+          </p> */}
+        </div>
       </div>
     );
   }
