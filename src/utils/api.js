@@ -26,13 +26,17 @@ class NurseriesDB {
     return this.service.get(`/profile/${id}`);
   }
 
+  getAll() {
+    return this.service.get("/allschools");
+  }
+
   // addProject(project) {
   //   //axios.post('http://localhost:5000/characters/, { name: 'miguel});
   //   return this.service.post("/projects", project);
   // }
   // //create a delete project function for our projectService
   deleteFavorite(id, userId) {
-    return this.service.post(`/schools/${id}`, {userId});
+    return this.service.post(`/schools/${id}`, { userId });
   }
   // updateProject(updatedProject) {
   //   return this.service.put(`/projects/${updatedProject.id}`, updatedProject);

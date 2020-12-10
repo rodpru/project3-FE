@@ -26,12 +26,12 @@ class Footer extends React.Component {
               <hr />
             </div>
             <div className="col-sm">
-              <h5 className="bottom-h5">MEDIA</h5>
+              <h5 className="bottom-h5">FOLLOW US</h5>
               <a href="/" className="bottom-p">
                 <img
                   src="/Icons/fb-icon.png"
                   alt="facebook-icon"
-                  style={{ width: "33px", height: "23px" }}
+                  style={{ width: "33px", height: "25px" }}
                 />
               </a>
               <hr />

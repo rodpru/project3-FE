@@ -50,7 +50,12 @@ class App extends React.Component {
         />
         <Switch>
           <Route exact path="/" component={Homepage} />
-          <Route path="/signup" component={Signup} />
+          <Route
+            path="/signup"
+            render={() => {
+              return <Signup setCurrentUser={this.setCurrentUser} />;
+            }}
+          />
           <Route
             path="/kindergartens"
             render={() => {

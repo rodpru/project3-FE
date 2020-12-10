@@ -41,7 +41,7 @@ class Profile extends React.Component {
   render() {
     console.log(this.state, "profile state");
     return (
-      <div className="container" style={{ minHeight: "300px" }}>
+      <div className="container" style={{ minHeight: "380px" }}>
         {/* <h2>Your favorites is empty</h2> */}
         <div className="card-deck d-flex flex-wrap">
           {this.state.favorites.map((school, index) => {
@@ -54,6 +54,7 @@ class Profile extends React.Component {
                 <img
                   src={school.photo}
                   className="card-img-top"
+                  id="card-img-top-profile"
                   alt="nurseries"
                 />
                 <div className="card-body">
@@ -71,6 +72,7 @@ class Profile extends React.Component {
                   </Link>
                   <p className="card-text">type: {school.schoolType}</p>
                   <button
+                    id="delete-btn"
                     className="btn btn-primary"
                     onClick={() => this.handleDeleteFavorite(school._id)}
                   >

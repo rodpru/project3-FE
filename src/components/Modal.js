@@ -115,7 +115,7 @@ class MyModal extends React.Component {
                   <input
                     type="text"
                     name="username"
-                    placeholder="Username"
+                    placeholder="username"
                     value={this.state.username}
                     onChange={this.handleChange}
                   />{" "}
@@ -124,7 +124,7 @@ class MyModal extends React.Component {
                   <input
                     type="password"
                     name="password"
-                    placeholder="Password"
+                    placeholder="password"
                     value={this.state.password}
                     onChange={this.handleChange}
                   />

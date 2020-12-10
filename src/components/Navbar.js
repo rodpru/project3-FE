@@ -4,11 +4,42 @@ import AuthService from "../utils/auth";
 import "../App.css";
 import "./Navbar.css";
 import MyModal from "./Modal";
+import "react-toastify/dist/ReactToastify.css";
+import { toast } from "react-toastify";
+import NurseriesDB from "../utils/api";
 
 class Navbar extends React.Component {
   state = {
     show: true,
+    favorites: [],
+    searchQuery: "",
+    favoritesToShow: [],
   };
+
+  handleOnChange = (event) => {
+    this.setState({
+      searchQuery: event.target.value,
+    });
+    this.handleFilterSchools(this.state.searchQuery);
+  };
+
+  handleFilterSchools = (query) => {
+    let visibleFavorites = [...this.state.favorites].filter((favorite) => {
+      return favorite.name.toLowerCase().includes(query.toLowerCase());
+    });
+    this.setState({
+      favoritesToShow: visibleFavorites,
+    });
+  };
+
+  componentDidMount() {
+    const nurseries = new NurseriesDB();
+    nurseries.getAll().then((response) => {
+      this.setState({
+        favorites: response.data,
+      });
+    });
+  }
 
   clickIcon = () => {
     this.setState({
@@ -21,6 +52,7 @@ class Navbar extends React.Component {
     authService.logout().then(() => {
       this.props.setCurrentUser(null);
       localStorage.removeItem("loggedInUser");
+      toast("Logged out");
     });
   };
   render() {
@@ -58,6 +90,9 @@ class Navbar extends React.Component {
               </svg>
               <input
                 onClick={this.clickInput}
+                onChange={(event) => {
+                  this.handleOnChange(event);
+                }}
                 id="input-nursery"
                 type="text"
                 placeholder="search"
@@ -141,6 +176,9 @@ class Navbar extends React.Component {
                 </svg>
                 <input
                   onClick={this.clickInput}
+                  onChange={(event) => {
+                    this.handleOnChange(event);
+                  }}
                   id="input-nursery"
                   type="text"
                   placeholder="search"

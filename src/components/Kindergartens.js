@@ -28,7 +28,7 @@ class Kindergartens extends React.Component {
 
   addFavorite = (id) => {
     const nurseries = new NurseriesDB();
- 
+
     // console.log(this.props.loggedInUser);
     this.props.loggedInUser
       ? nurseries
@@ -80,6 +80,7 @@ class Kindergartens extends React.Component {
                       this.addFavorite(kindergarten.attributes.INF_NOME);
                     }}
                     className="btn btn-primary"
+                    id="btn-fav-nurse3"
                   >
                     Add to Favourites
                   </button>{" "}

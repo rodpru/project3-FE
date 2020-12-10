@@ -1,6 +1,7 @@
 import React from "react";
 import AuthService from "../utils/auth";
 import { Link, withRouter } from "react-router-dom";
+import { toast } from "react-toastify";
 
 class Signup extends React.Component {
   state = {
@@ -14,9 +15,16 @@ class Signup extends React.Component {
   handleFormSubmit = (event) => {
     event.preventDefault();
     const authService = new AuthService();
-    authService.signup(this.state.username, this.state.password).then(() => {
-      this.props.history.push("/schools");
-    });
+    authService
+      .signup(this.state.username, this.state.password)
+      .then((response) => {
+        this.props.setCurrentUser(response.data);
+        toast(`Welcome ${this.state.username}`);
+        //save user id to browser local storage
+        localStorage.setItem("loggedInUser", response.data._id);
+
+        this.props.history.push("/schools");
+      });
   };
   render() {
     return (
@@ -31,6 +39,7 @@ class Signup extends React.Component {
           />
           <label>Password:</label>
           <input
+            type="password"
             name="password"
             value={this.state.password}
             onChange={this.handleChange}

@@ -79,6 +79,7 @@ class AllSchools extends React.Component {
                         this.addFavorite(nursery.name);
                       }}
                       className="btn btn-primary"
+                      id="btn-fav-nurse2"
                     >
                       Add to Favourites
                     </button>

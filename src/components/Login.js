@@ -36,14 +36,29 @@ class Login extends React.Component {
       <div>
         <div className="container-login">
           <div className="google-oauth">
-            <button>
+            <button
+              className="btn btn-primary"
+              id="google-btn2"
+              style={{
+                borderRadius: "15px",
+                height: "9vh",
+                width: "20vw",
+                justifyContent: "space-evenly",
+                display: "flex",
+                alignItems: "center",
+                padding: "5px",
+              }}
+            >
               <img
                 src="../../images/google.png"
+                style={{
+                  width: "4vw",
+                }}
                 className="google-icon"
                 alt="google-icon"
               />
               <NavLink activeStyle={{ color: "red" }} exact to="/login-google">
-                Login With Google
+                Google Login
               </NavLink>
             </button>
           </div>
@@ -53,7 +68,7 @@ class Login extends React.Component {
               <input
                 type="text"
                 name="username"
-                placeholder="Your Username Here!"
+                placeholder="username"
                 value={this.state.username}
                 onChange={this.handleChange}
               />{" "}
@@ -62,12 +77,14 @@ class Login extends React.Component {
               <input
                 type="password"
                 name="password"
-                placeholder="Your Password Here!"
+                placeholder="password"
                 value={this.state.password}
                 onChange={this.handleChange}
               />
               <br />
-              <button>Login</button>
+              <button className="btn btn-primary" id="login-btn-google">
+                Login
+              </button>
             </form>
           </div>
           <p>

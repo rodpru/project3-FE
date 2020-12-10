@@ -53,3 +53,21 @@
   bottom:20px !important;
   left: 5.5rem !important;
 }
+
+#btn-fav-nurse2 {
+  position: absolute !important;
+  bottom:20px !important;
+  left: 5.5rem !important;
+}
+#btn-fav-nurse3 {
+  position: absolute !important;
+  bottom:20px !important;
+  left: 5.5rem !important;
+}
+
+#delete-btn {
+  position: absolute !important;
+  font-size: 0.8rem!important;
+  bottom:20px !important;
+  left: 2.9rem !important;
+}

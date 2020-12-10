@@ -30,6 +30,14 @@
 
 }
 
+#google-btn2 {
+  font-size: 20px!important;
+  position: relative !important;
+  left: 0rem !important;
+  width: 14rem !important;
+  color: #9BBBDF !important;
+}
+
 #google-btn {
   font-size: 20px!important;
   position: relative !important;
@@ -39,6 +47,7 @@
 .modal-body {
   background-color: #FAFAFA !important;
 }
+
 .container-login{
   margin-top: 10vh;
   display: flex;
@@ -62,6 +71,6 @@ form button {
   font-size: 1.5rem;
   color: #9BBBDF;
   margin-top: 0vh;  
-  margin-left: 1vh;
+  margin-left: 15vh;
 } 
 

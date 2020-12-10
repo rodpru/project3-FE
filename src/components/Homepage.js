@@ -120,10 +120,9 @@ class Homepage extends React.Component {
               or nursery for your children!
             </h1>
             <p>
-              Lorem Ipsum has been the industry's standard dummy
-              <br /> text ever since the 1500s, when an unknown printer took a
-              <br /> galley of type and scrambled it to make a type specimen
-              book.
+              My First School it's a platform to help parents
+              <br /> find the best schools near their residency
+              <br /> in a quick and intuitive way.
             </p>
             <Link to={"/nurseries"}>
               <button className="btn btn-light">Nurseries</button>
