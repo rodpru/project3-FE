@@ -112,6 +112,8 @@ h1 {
 .title {
   position: relative;
   align-items: center;
+  margin-left: 9vw;
+  margin-top: 1rem;
 }
 
 .card-deck {
