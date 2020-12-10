@@ -10,7 +10,7 @@ class Footer extends React.Component {
           <div className="row">
             <div className="col-sm">
               <h5 className="bottom-h5">
-                <div className="nav-bar-logo">My First School</div>
+                <div className="nav-bar-logo-foot">My First School</div>
               </h5>
               <a href="/" className="bottom-p">
                 About

@@ -7,24 +7,32 @@ class Details extends React.Component {
   state = {
     school: this.props.location.state,
     kindergarten: null,
-    loaded: false
+    loaded: false,
   };
 
   componentDidMount() {
     const kindergartens = new KindergartensApi();
     kindergartens.getAllKindergartens().then((response) => {
-      let thisKindergarten = response.data.features.filter(school => {
-        return school.attributes.GlobalID === this.state.school.GlobalID
-      })
+      let thisKindergarten = response.data.features.filter((school) => {
+        return school.attributes.GlobalID === this.state.school.GlobalID;
+      });
       return this.setState({
         kindergarten: thisKindergarten[0],
-        loaded: true
+        loaded: true,
       });
     });
   }
 
+  componentDidUpdate(prevProps) {
+    if (prevProps.location.state !== this.props.location.state) {
+      this.setState({
+        school: this.props.location.state,
+      });
+    }
+  }
+
   render() {
-    if (this.state.school.schoolType === 'kindergarten' && this.state.loaded) {
+    if (this.state.school.schoolType === "kindergarten" && this.state.loaded) {
       const x = this.state.kindergarten.geometry.x;
       const y = this.state.kindergarten.geometry.y;
       // console.log(this.state.school.attributes, "API");
@@ -46,7 +54,10 @@ class Details extends React.Component {
                 <p>Address: {this.state.kindergarten.attributes.INF_MORADA}</p>
                 <p></p>
                 <p>Email: {this.state.kindergarten.attributes.INF_EMAIL}</p>
-                <p>Tel: {this.state.kindergarten.attributes.INF_TELEFONE}</p> <br />
+                <p>
+                  Tel: {this.state.kindergarten.attributes.INF_TELEFONE}
+                </p>{" "}
+                <br />
                 <p className="detail-footer">
                   {" "}
                   <a
@@ -70,7 +81,7 @@ class Details extends React.Component {
           </div>
         </div>
       );
-    } else if(this.state.school.schoolType === 'nursery') {
+    } else if (this.state.school.schoolType === "nursery") {
       // console.log(this.state.school.geo.lat);
       return (
         // <p>{this.state.school.name}</p>
@@ -88,7 +99,7 @@ class Details extends React.Component {
                 <p>Address: {this.state.school.address}</p>
                 <p>Email: {this.state.school.email}</p>
                 <p>Tel: {this.state.school.phone}</p> <br />
-                 <p className="detail-footer">
+                <p className="detail-footer">
                   {" "}
                   <a
                     href={this.state.school.site}
@@ -105,17 +116,14 @@ class Details extends React.Component {
                   >
                     See on the Map{" "}
                   </a>
-                </p>  
+                </p>
               </div>
             </div>
           </div>
         </div>
       );
     } else {
-      return (
-
-        <p>Loading</p>
-      )
+      return <p>Loading</p>;
     }
   }
 }

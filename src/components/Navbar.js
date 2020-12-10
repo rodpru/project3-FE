@@ -16,6 +16,14 @@ class Navbar extends React.Component {
     favoritesToShow: [],
   };
 
+  closeSearchbar = () => {
+    this.setState({
+      searchQuery: "",
+      favoritesToShow: [],
+    });
+    this.clickIcon();
+  };
+
   handleOnChange = (event) => {
     this.setState({
       searchQuery: event.target.value,
@@ -88,15 +96,36 @@ class Navbar extends React.Component {
                   d="M6.5 12a5.5 5.5 0 1 0 0-11 5.5 5.5 0 0 0 0 11zM13 6.5a6.5 6.5 0 1 1-13 0 6.5 6.5 0 0 1 13 0z"
                 />
               </svg>
-              <input
-                onClick={this.clickInput}
-                onChange={(event) => {
-                  this.handleOnChange(event);
-                }}
-                id="input-nursery"
-                type="text"
-                placeholder="search"
-              />
+              <div className="searchbar-div">
+                <input
+                  style={{ bottom: "1.4rem" }}
+                  onClick={this.clickInput}
+                  onChange={(event) => {
+                    this.handleOnChange(event);
+                  }}
+                  id="input-nursery"
+                  type="text"
+                  placeholder="search"
+                  value={this.state.searchQuery}
+                />
+                <ul>
+                  {this.state.favoritesToShow.map((favorite, index) => {
+                    return (
+                      <Link
+                        key={index}
+                        onClick={this.closeSearchbar}
+                        to={{
+                          pathname: `/${favorite._id}`,
+                          state: favorite,
+                        }}
+                      >
+                        {" "}
+                        <li>{favorite.name}</li>
+                      </Link>
+                    );
+                  })}
+                </ul>
+              </div>
             </div>
             <div
               id="overlay"
@@ -174,15 +203,35 @@ class Navbar extends React.Component {
                     d="M6.5 12a5.5 5.5 0 1 0 0-11 5.5 5.5 0 0 0 0 11zM13 6.5a6.5 6.5 0 1 1-13 0 6.5 6.5 0 0 1 13 0z"
                   />
                 </svg>
-                <input
-                  onClick={this.clickInput}
-                  onChange={(event) => {
-                    this.handleOnChange(event);
-                  }}
-                  id="input-nursery"
-                  type="text"
-                  placeholder="search"
-                />
+                <div className="searchbar-div">
+                  <input
+                    onClick={this.clickInput}
+                    onChange={(event) => {
+                      this.handleOnChange(event);
+                    }}
+                    id="input-nursery"
+                    type="text"
+                    placeholder="search"
+                    value={this.state.searchQuery}
+                  />
+                  <ul>
+                    {this.state.favoritesToShow.map((favorite, index) => {
+                      return (
+                        <Link
+                          key={index}
+                          onClick={this.closeSearchbar}
+                          to={{
+                            pathname: `/${favorite._id}`,
+                            state: favorite,
+                          }}
+                        >
+                          {" "}
+                          <li>{favorite.name}</li>
+                        </Link>
+                      );
+                    })}
+                  </ul>
+                </div>
               </div>
               <div
                 id="overlay"

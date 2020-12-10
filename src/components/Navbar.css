@@ -74,3 +74,13 @@ form button {
   margin-left: 15vh;
 } 
 
+.nav-bar-logo-foot {
+  font-family: 'Nerko One', cursive;
+  font-size: 1.5rem;
+  color: #9BBBDF;
+  margin-top: 0vh;  
+  
+}
+.searchbar-div {
+  position: absolute;
+}
