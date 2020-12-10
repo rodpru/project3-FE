@@ -6,6 +6,7 @@ import "./Nurserie.css";
 import "../App.css";
 import "react-toastify/dist/ReactToastify.css";
 import { toast } from "react-toastify";
+import Spinner from 'react-bootstrap/Spinner'
 
 class AllSchools extends React.Component {
   state = {

@@ -3,7 +3,7 @@ import axios from "axios";
 class NurseriesDB {
   constructor() {
     let service = axios.create({
-      baseURL: `${process.env.REACT_APP_PROJECTS_API}`,
+      baseURL: `${process.env.REACT_APP_PROJECTS_API}/api`,
     });
     this.service = service;
   }
