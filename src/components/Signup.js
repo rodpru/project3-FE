@@ -28,7 +28,16 @@ class Signup extends React.Component {
   };
   render() {
     return (
-      <div>
+      <div className="signup-container">
+        <div className="signup-image">
+          <img
+            style={{
+              objectFit: "cover",
+            }}
+            src="../../images/annie-spratt-O1TNdLNvJLM-unsplash.jpg"
+            alt="signup"
+          />
+        </div>
         <div className="container-login">
           <div className="google-oauth">
             <button
@@ -47,6 +56,7 @@ class Signup extends React.Component {
               <img
                 src="../../images/google.png"
                 style={{
+                  marginTop: 0,
                   width: "4vw",
                 }}
                 className="google-icon"
