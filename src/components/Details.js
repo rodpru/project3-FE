@@ -1,4 +1,5 @@
 import React from "react";
+import NurseriesDB from "../utils/api";
 import { withRouter } from "react-router-dom";
 import KindergartensApi from "../utils/api-cml";
 import "./Details.css";
@@ -20,15 +21,41 @@ class Details extends React.Component {
       });
     }
     const kindergartens = new KindergartensApi();
-    kindergartens.getAllKindergartens().then((response) => {
-      let thisKindergarten = response.data.features.filter((school) => {
-        return school.attributes.GlobalID === this.state.school.GlobalID;
-      });
-      this.setState({
-        kindergarten: thisKindergarten[0],
-        loaded: true,
+    const nurseries = new NurseriesDB();
+    kindergartens.getAllKindergartens().then((responseKinder) => {
+      console.log("responseKinder", responseKinder);
+      nurseries.getAllNurseries().then((responseNurseries) => {
+        const kinderFromDB = new NurseriesDB();
+        kinderFromDB.getAll().then((schoolsWithPhotos) => {
+          //console.log(response.data[0].schoolType, "response");
+
+          responseKinder.data.features.forEach((kindergarten) => {
+            schoolsWithPhotos.data.forEach((schoolWithPhoto) => {
+              if (
+                schoolWithPhoto.schoolType === "kindergarten" &&
+                schoolWithPhoto.GlobalID === kindergarten.attributes.GlobalID
+              ) {
+                kindergarten.attributes.photo = schoolWithPhoto.photo;
+              }
+            });
+          });
+          this.setState({
+            kindergartens: responseKinder.data.features,
+            loaded: true,
+          });
+        });
       });
     });
+    // const kindergartens = new KindergartensApi();
+    // kindergartens.getAllKindergartens().then((response) => {
+    //   let thisKindergarten = response.data.features.filter((school) => {
+    //     return school.attributes.GlobalID === this.state.school.GlobalID;
+    //   });
+    //   this.setState({
+    //     kindergarten: thisKindergarten[0],
+    //     loaded: true,
+    //   });
+    // });
   }
 
   componentDidUpdate(prevProps) {
@@ -41,8 +68,8 @@ class Details extends React.Component {
 
   render() {
     if (this.state.school.schoolType === "kindergarten" && this.state.loaded) {
-      const x = this.state.kindergarten.geometry.x;
-      const y = this.state.kindergarten.geometry.y;
+      const x = this.state.school.geometry.x;
+      const y = this.state.school.geometry.y;
       // console.log(this.state.school.attributes, "API");
       return (
         <div className="container-flex-details">
@@ -51,26 +78,23 @@ class Details extends React.Component {
               <div className="detail-photo">
                 <img
                   id="img-details"
-                  src="https://res.cloudinary.com/dgyg9zh3a/image/upload/v1607423361/Nurseries/pro-church-media-2DTE3ePfnD8-unsplash_qpndxi.jpg"
+                  src={this.state.school.attributes.photo}
                   alt="index"
                 />
               </div>
             </div>
             <div className="column-details">
               <div className="text-details">
-                <h2> {this.state.kindergarten.attributes.INF_NOME}</h2> <br />
-                <p>{this.state.kindergarten.attributes.INF_DESCRICAO}</p>
-                <p>Address: {this.state.kindergarten.attributes.INF_MORADA}</p>
+                <h2> {this.state.school.attributes.INF_NOME}</h2> <br />
+                <p>{this.state.school.attributes.INF_DESCRICAO}</p>
+                <p>Address: {this.state.school.attributes.INF_MORADA}</p>
                 <p></p>
-                <p>Email: {this.state.kindergarten.attributes.INF_EMAIL}</p>
-                <p>
-                  Tel: {this.state.kindergarten.attributes.INF_TELEFONE}
-                </p>{" "}
-                <br />
+                <p>Email: {this.state.school.attributes.INF_EMAIL}</p>
+                <p>Tel: {this.state.school.attributes.INF_TELEFONE}</p> <br />
                 <p className="detail-footer">
                   {" "}
                   <a
-                    href={this.state.kindergarten.attributes.INF_SITE}
+                    href={this.state.school.attributes.INF_SITE}
                     target="_blank"
                     rel="noreferrer"
                   >

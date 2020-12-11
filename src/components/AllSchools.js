@@ -40,23 +40,10 @@ class AllSchools extends React.Component {
         });
       });
     });
-    //paste under
-    // const kinderFromDB = new NurseriesDB();
-    // kinderFromDB.getAll().then((response) => {
-    //   //console.log(response.data[0].schoolType, "response");
-    //   let kinderDB = response.data.filter((school) => {
-    //     return school.schoolType === "kindergarten";
-    //   });
-    //   // if (kinderDB.GlobalID === kindergartens)
-    //   console.log(kinderDB, "kinderDB");
-    //   console.log(this.kindergartens, "kindergartens state");
-    // });
   }
 
   addFavorite = (id) => {
     const nurseries = new NurseriesDB();
-    // console.log(id);
-    // console.log(this.props.loggedInUser);
     this.props.loggedInUser
       ? nurseries
           .addFavorite(this.props.loggedInUser._id, id)
