@@ -16,7 +16,7 @@ class Profile extends React.Component {
     // const name = this.props.loggedInUser.favorites;
     const nurseries = new NurseriesDB();
     nurseries.getFavorites(id).then((response) => {
-      console.log(response, "response");
+      //console.log(response, "response");
       this.setState({
         favorites: response.data,
       });
@@ -30,7 +30,7 @@ class Profile extends React.Component {
   handleDeleteFavorite = (id) => {
     let userId = this.props.match.params.id;
     const nurseries = new NurseriesDB();
-    console.log(id);
+    //console.log(id);
     nurseries.deleteFavorite(id, userId).then(() => {
       this.getFavorites2();
       // this.props.history.push(`/profile/${id}`);
@@ -39,7 +39,7 @@ class Profile extends React.Component {
   };
 
   render() {
-    console.log(this.state, "profile state");
+    // console.log(this.state, "profile state");
     return (
       <div className="container" style={{ minHeight: "380px" }}>
         {/* <h2>Your favorites is empty</h2> */}

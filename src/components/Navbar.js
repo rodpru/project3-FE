@@ -25,6 +25,7 @@ class Navbar extends React.Component {
   };
 
   handleOnChange = (event) => {
+    //console.log(this.state.searchQuery);
     this.setState({
       searchQuery: event.target.value,
     });
@@ -49,9 +50,18 @@ class Navbar extends React.Component {
     });
   }
 
+  componentDidUpdate(prevProps, prevState) {
+    if (!this.state.searchQuery && this.state.favoritesToShow.length >= 1) {
+      this.setState({
+        favoritesToShow: [],
+      });
+    }
+  }
+
   clickIcon = () => {
     this.setState({
       show: !this.state.show,
+      favoritesToShow: [],
     });
   };
 
@@ -120,7 +130,7 @@ class Navbar extends React.Component {
                         }}
                       >
                         {" "}
-                        <li>{favorite.name}</li>
+                        <li className="search-li">{favorite.name}</li>
                       </Link>
                     );
                   })}

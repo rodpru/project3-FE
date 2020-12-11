@@ -17,7 +17,7 @@ class AllSchools extends React.Component {
     const kindergartens = new KindergartensApi();
     const nurseries = new NurseriesDB();
     kindergartens.getAllKindergartens().then((responseKinder) => {
-      console.log("responseKinder", responseKinder);
+      //console.log("responseKinder", responseKinder);
       nurseries.getAllNurseries().then((responseNurseries) => {
         const kinderFromDB = new NurseriesDB();
         kinderFromDB.getAll().then((schoolsWithPhotos) => {

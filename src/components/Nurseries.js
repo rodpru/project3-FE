@@ -27,7 +27,7 @@ class Nurseries extends React.Component {
       ? nurseries
           .addFavorite(this.props.loggedInUser._id, id)
           .then((response) => {
-            console.log(response);
+            //console.log(response);
             toast("Added to favorites");
           })
       : toast("Login or signup please!");
