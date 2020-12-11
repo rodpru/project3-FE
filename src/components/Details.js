@@ -11,7 +11,6 @@ class Details extends React.Component {
   };
 
   componentDidMount() {
-    debugger;
     if (!this.state.school.schoolType) {
       let newSchool = { ...this.state.school };
       newSchool.schoolType = "kindergarten";
@@ -25,7 +24,6 @@ class Details extends React.Component {
       let thisKindergarten = response.data.features.filter((school) => {
         return school.attributes.GlobalID === this.state.school.GlobalID;
       });
-      debugger;
       this.setState({
         kindergarten: thisKindergarten[0],
         loaded: true,

@@ -6,7 +6,7 @@ import "./Nurserie.css";
 import "../App.css";
 import "react-toastify/dist/ReactToastify.css";
 import { toast } from "react-toastify";
-import Spinner from 'react-bootstrap/Spinner'
+import Spinner from "react-bootstrap/Spinner";
 
 class AllSchools extends React.Component {
   state = {
@@ -17,13 +17,40 @@ class AllSchools extends React.Component {
     const kindergartens = new KindergartensApi();
     const nurseries = new NurseriesDB();
     kindergartens.getAllKindergartens().then((responseKinder) => {
-      return nurseries.getAllNurseries().then((responseNurseries) => {
-        this.setState({
-          kindergartens: responseKinder.data.features,
-          nurseries: responseNurseries.data,
+      console.log("responseKinder", responseKinder);
+      nurseries.getAllNurseries().then((responseNurseries) => {
+        const kinderFromDB = new NurseriesDB();
+        kinderFromDB.getAll().then((schoolsWithPhotos) => {
+          //console.log(response.data[0].schoolType, "response");
+
+          responseKinder.data.features.forEach((kindergarten) => {
+            schoolsWithPhotos.data.forEach((schoolWithPhoto) => {
+              if (
+                schoolWithPhoto.schoolType === "kindergarten" &&
+                schoolWithPhoto.GlobalID === kindergarten.attributes.GlobalID
+              ) {
+                kindergarten.attributes.photo = schoolWithPhoto.photo;
+              }
+            });
+          });
+          this.setState({
+            kindergartens: responseKinder.data.features,
+            nurseries: responseNurseries.data,
+          });
         });
       });
     });
+    //paste under
+    // const kinderFromDB = new NurseriesDB();
+    // kinderFromDB.getAll().then((response) => {
+    //   //console.log(response.data[0].schoolType, "response");
+    //   let kinderDB = response.data.filter((school) => {
+    //     return school.schoolType === "kindergarten";
+    //   });
+    //   // if (kinderDB.GlobalID === kindergartens)
+    //   console.log(kinderDB, "kinderDB");
+    //   console.log(this.kindergartens, "kindergartens state");
+    // });
   }
 
   addFavorite = (id) => {
@@ -105,7 +132,7 @@ class AllSchools extends React.Component {
                   style={{ minWidth: "55vh" }}
                 >
                   <img
-                    src="/images/pro-church-media-2DTE3ePfnD8-unsplash.jpg"
+                    src={kindergarten.attributes.photo}
                     className="card-img-top"
                     alt="kindergartens"
                   />
