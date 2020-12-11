@@ -226,7 +226,7 @@ class Navbar extends React.Component {
                           }}
                         >
                           {" "}
-                          <li>{favorite.name}</li>
+                          <li className="search-li">{favorite.name}</li>
                         </Link>
                       );
                     })}

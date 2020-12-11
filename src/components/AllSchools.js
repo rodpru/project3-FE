@@ -160,6 +160,7 @@ class AllSchools extends React.Component {
                         this.addFavorite(kindergarten.attributes.INF_NOME);
                       }}
                       className="btn btn-primary"
+                      id="btn-fav-nurse4"
                     >
                       Add to Favourites
                     </button>

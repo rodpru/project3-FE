@@ -15,6 +15,7 @@
   z-index: 1;
   transform: scale(1) translateX(0);
   transition: transform 0.15s linear;
+  
 }
 .search input {
   position: relative !important;
@@ -24,7 +25,7 @@
   bottom: 2.3rem;
   position: absolute;
   right: 12rem;
-  border-radius: 20px;
+  border-radius: 20px ;
   color: #212121;
   padding: 0 3rem 0 1.3rem;
   box-shadow: 11px 15px 16px rgba(0, 0, 0, 0.07);
@@ -37,6 +38,24 @@
 }
 .search.open input {
   transform: scaleX(1);
+}
+
+
+.search-li {
+  position: relative;
+    font-size: 12px;
+    width: auto;
+    color: white;
+    font-weight: bold;
+    display: block;
+    line-height: 6px;
+    padding: 8px 10px;
+    border-radius: 15px ;
+    border: 1px solid rgb(128, 126, 126);
+    background-color:#74a0cf;
+    bottom: 2.7rem;
+    right: 14.5rem;
+    margin-top: -15px;
 }
 .overlay {
   position: fixed !important;
@@ -60,6 +79,11 @@
   left: 5.5rem !important;
 }
 #btn-fav-nurse3 {
+  position: absolute !important;
+  bottom:20px !important;
+  left: 5.5rem !important;
+}
+#btn-fav-nurse4 {
   position: absolute !important;
   bottom:20px !important;
   left: 5.5rem !important;

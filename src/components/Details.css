@@ -10,9 +10,10 @@
 .detail-photo img{
   width: 43vw;
   height: auto;
-  border: 1px solid #5782ad !important;
+  border: 2px solid #d4d4d4!important;
   object-fit: cover !important;
 }
+
 
 .text-details {
   margin-left: 5vw;
