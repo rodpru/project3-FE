@@ -19,9 +19,28 @@ class Kindergartens extends React.Component {
 
   componentDidMount() {
     const kindergartens = new KindergartensApi();
-    kindergartens.getAllKindergartens().then((response) => {
-      return this.setState({
-        kindergartens: response.data.features,
+    const nurseries = new NurseriesDB();
+    kindergartens.getAllKindergartens().then((responseKinder) => {
+      console.log("responseKinder", responseKinder);
+      nurseries.getAllNurseries().then((responseNurseries) => {
+        const kinderFromDB = new NurseriesDB();
+        kinderFromDB.getAll().then((schoolsWithPhotos) => {
+          //console.log(response.data[0].schoolType, "response");
+
+          responseKinder.data.features.forEach((kindergarten) => {
+            schoolsWithPhotos.data.forEach((schoolWithPhoto) => {
+              if (
+                schoolWithPhoto.schoolType === "kindergarten" &&
+                schoolWithPhoto.GlobalID === kindergarten.attributes.GlobalID
+              ) {
+                kindergarten.attributes.photo = schoolWithPhoto.photo;
+              }
+            });
+          });
+          this.setState({
+            kindergartens: responseKinder.data.features,
+          });
+        });
       });
     });
   }
@@ -57,7 +76,7 @@ class Kindergartens extends React.Component {
                 style={{ minWidth: "55vh" }}
               >
                 <img
-                  src="/images/pro-church-media-2DTE3ePfnD8-unsplash.jpg"
+                  src={kindergarten.attributes.photo}
                   className="card-img-top"
                   alt="kindergarten"
                 />
